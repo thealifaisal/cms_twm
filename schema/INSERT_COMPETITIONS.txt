@@ -1,0 +1,7 @@
+INSERT INTO competition (competition_id, competition_name)
+VALUES
+(101, "Web Development"),
+(102, "Mobile App Development"),
+(103, "Speed Programming"),
+(104, "UI/UX Design"),
+(105, "Database Design");
