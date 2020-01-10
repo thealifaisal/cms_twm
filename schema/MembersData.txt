@@ -1,2 +1,3 @@
 INSERT INTO member VALUES("K173791", "Ali Faisal", "Male", "K173791@u.edu.pk", 2019, "K173791", "7789", 107, 115);
 INSERT INTO member VALUES("K173810", "Aiman Siddiqui", "Female", "K173810@u.edu.pk", 2019, "K173810", "7789", 106, 114);
+INSERT INTO member VALUES("K173851", "Shayan", "Male", "K173851@u.edu.pk", 2020, "K173851", "7789", 107, 124);
