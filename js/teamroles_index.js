@@ -1,7 +1,7 @@
 
 var xhttp = new XMLHttpRequest();
 
-xhttp.open("POST", "http://192.168.1.102/SourceCode/php/get_team_details.php", true);
+xhttp.open("POST", "http://192.168.1.100/SourceCode/php/get_team_details.php", true);
 
 xhttp.onreadystatechange = function(){
 
