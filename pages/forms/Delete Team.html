@@ -278,7 +278,7 @@
                 </div>
                 <!-- /.card-header -->
                 <!-- form start -->
-                <form role="form">
+                <form role="form" method="post">
                   <div class="card-body">
                     <div class="row">
                       <div class="col-md-12">
@@ -308,7 +308,7 @@
                   </div>
                   <!-- /.card-body -->
                   <div class="card-footer text-right">
-                    <button type="submit" class="btn btn-primary">Fetch Record</button>
+                    <button type="submit" onclick="fetchTeam()" class="btn btn-primary">Fetch Record</button>
                   </div>
                 </form>
               </div>
@@ -436,7 +436,7 @@
                   </div>
                   <!-- /.card-body -->
                   <div class="card-footer text-right">
-                    <button type="submit" class="btn btn-danger">Delete</button>
+                    <button type="submit" onclick="delTeam()" class="btn btn-danger">Delete</button>
                   </div>
                 </form>
               </div>
@@ -479,6 +479,7 @@
       bsCustomFileInput.init();
     });
   </script>
+  <script src="../../js/fetch_team.js"></script>
 </body>
 
 </html>
