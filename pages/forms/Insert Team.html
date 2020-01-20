@@ -284,7 +284,7 @@
                       <div class="col-md-6">
                         <div class="form-group">
                           <label for="exampleInputEmail1">Event Name</label>
-                          <select type="text" class="form-control" id="event_name" placeholder="Enter Event Name">
+                          <select type="text" class="form-control" id="event_name">
                             <option default>Select Event</option>
                             <option>Tech Cup</option>
                           </select>
@@ -376,7 +376,7 @@
                   <!-- /.card-body -->
                   <div class="card-footer text-right">
                     <button type="submit" class="btn btn-success">Reset Form</button>
-                    <button type="submit" class="btn btn-primary">Submit</button>
+                    <button type="submit" onclick="regTeam()" class="btn btn-primary">Submit</button>
                   </div>
                 </form>
               </div>
@@ -419,6 +419,7 @@
       bsCustomFileInput.init();
     });
   </script>
+  <script src="../../js/register_team.js"></script>
 </body>
 
 </html>
