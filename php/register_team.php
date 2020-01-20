@@ -22,12 +22,12 @@ $p2_name = trim($_GET["P2NAME"]);
 // $ce_year = 2020;
 // $t_name = "TEAM1";
 // $l_id = "K173791";
-// $l_name = "XYZ";
-// $l_contact = "0345-0000000";
-// $p1_id = "K17****";
-// $p1_name = "XYZ";
-// $p2_id = "K17****";
-// $p2_name = "ABCD";
+// $l_name = "Ali Faisal";
+// $l_contact = "0345-1248906";
+// $p1_id = "K163741";
+// $p1_name = "Mustufa Qadri";
+// $p2_id = "K173918";
+// $p2_name = "Avinash";
 
 // get event ID
 $getEID = "SELECT event_id FROM cms_twm.event WHERE event_name = '$e_name'";
