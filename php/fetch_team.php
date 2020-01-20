@@ -4,8 +4,8 @@ include "connect_cms.php";
 
 $conn = openConn();
 
-// $team_id = intVal(trim($_GET["TID"]));
-$team_id = 1;
+$team_id = intVal(trim($_GET["TID"]));
+// $team_id = 1;
 
 // fetch team name from event_team
 $get_teamname = "SELECT team_name FROM event_team WHERE team_id = $team_id";
