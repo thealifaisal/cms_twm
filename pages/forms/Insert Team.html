@@ -281,37 +281,10 @@
                 <form role="form">
                   <div class="card-body">
                     <div class="row">
-                      <div class="col-md-4">
-                        <div class="form-group">
-                          <label>Competition Name</label>
-                          <select class="form-control" id="competition_name" name="competition_name">
-                            <option>Select Competition</option>
-                            <option>Web Development</option>
-                            <option>Mobile App Development</option>
-                            <option>Speed Programming</option>
-                            <option>UI/UX Design</option>
-                            <option>Database Design</option>
-                          </select>
-                        </div>
-                      </div>
-                      <div class="col-md-4">
-                        <div class="form-group">
-                          <label for="exampleInputEmail1">Team Name</label>
-                          <input type="text" class="form-control" id="team_name" name="team_name" placeholder="Enter Team Name">
-                        </div>
-                      </div>
-                      <div class="col-md-4">
-                        <div class="form-group">
-                          <label for="exampleInputEmail1">Leader Contact no.</label>
-                          <input type="number" class="form-control" id="leader_no" name="leader_no" placeholder="Enter Contact no.">
-                        </div>
-                      </div>
-                    </div>
-                    <div class="row">
                       <div class="col-md-6">
                         <div class="form-group">
                           <label for="exampleInputEmail1">Event Name</label>
-                          <select type="text" class="form-control" id="event_name" name="event_name" placeholder="Enter Event Name">
+                          <select type="text" class="form-control" id="event_name" placeholder="Enter Event Name">
                             <option default>Select Event</option>
                             <option>Tech Cup</option>
                           </select>
@@ -320,21 +293,54 @@
                       <div class="col-md-6">
                         <div class="form-group">
                           <label for="exampleInputEmail1">Year</label>
-                          <input type="text" class="form-control" id="year" name="year" placeholder="Enter Event Year">
+                          <input type="text" class="form-control" id="year" placeholder="Enter Event Year">
                         </div>
                       </div>
+                      <div class="col-md-6">
+                        <div class="form-group">
+                          <label>Competition Name</label>
+                          <select class="form-control" id="comp_name">
+                            <option>Select Competition</option>
+                            <option>Web Development</option>
+                            <option>Mobile App Development</option>
+                            <option>Speed Programming</option>
+                            <option>UI / UX Design</option>
+                            <option>Database Design</option>
+                          </select>
+                        </div>
+                      </div>
+                      <div class="col-md-6">
+                        <div class="form-group">
+                          <label for="exampleInputEmail1">Team Name</label>
+                          <input type="text" class="form-control" id="team_name" placeholder="Enter Team Name">
+                        </div>
+                      </div>
+                      <!-- <div class="col-md-4">
+                        <div class="form-group">
+                          <label for="exampleInputEmail1">Leader Contact no.</label>
+                          <input type="number" class="form-control" id="leader_contact" placeholder="Enter Contact no." readonly>
+                        </div>
+                      </div> -->
                     </div>
                     <div class="row">
                       <div class="col-md-6">
                         <div class="form-group">
                           <label for="exampleInputEmail1">Leader NU-ID</label>
-                          <input type="text" class="form-control" id="leader_mail" name="leader_mail" placeholder="Enter NU-ID (K171234)">
+                          <input type="text" class="form-control" id="leader_id" placeholder="Enter NU-ID (K161234)">
                         </div>
                       </div>
                       <div class="col-md-6">
                         <div class="form-group">
                           <label for="exampleInputEmail1">Leader Full Name</label>
-                          <input type="text" class="form-control" id="leader_name" name="leader_name" placeholder="Enter Full Name">
+                          <input type="text" class="form-control" id="leader_name" placeholder="Enter Full Name">
+                        </div>
+                      </div>
+                    </div>
+                    <div class="row">
+                      <div class="col-md-12">
+                        <div class="form-group">
+                          <label for="exampleInputEmail1">Leader Contact no.</label>
+                          <input type="number" class="form-control" id="leader_contact" placeholder="Enter Contact no.">
                         </div>
                       </div>
                     </div>
@@ -342,13 +348,13 @@
                       <div class="col-md-6">
                         <div class="form-group">
                           <label for="exampleInputEmail1">Participant 1: NU-ID</label>
-                          <input type="text" class="form-control" id="p1_mail" name="p1_mail" placeholder="Enter NU-ID (K171234)">
+                          <input type="text" class="form-control" id="p1_id" placeholder="Enter NU-ID (K161234)">
                         </div>
                       </div>
                       <div class="col-md-6">
                         <div class="form-group">
                           <label for="exampleInputEmail1">Participant 1: Full Name</label>
-                          <input type="text" class="form-control" id="p1_name" name="p1_name" placeholder="Enter Full Name">
+                          <input type="text" class="form-control" id="p1_name" placeholder="Enter Full Name">
                         </div>
                       </div>
                     </div>
@@ -356,13 +362,27 @@
                       <div class="col-md-6">
                         <div class="form-group">
                           <label for="exampleInputEmail1">Participant 2: NU-ID</label>
-                          <input type="text" class="form-control" id="p2_mail" name="p2_mail" placeholder="Enter NU-ID (K171234)">
+                          <input type="text" class="form-control" id="p2_id" placeholder="Enter NU-ID (K161234)">
                         </div>
                       </div>
                       <div class="col-md-6">
                         <div class="form-group">
                           <label for="exampleInputEmail1">Participant 2: Full Name</label>
-                          <input type="text" class="form-control" id="p2_name" name="p2_name" placeholder="Enter Full Name">
+                          <input type="text" class="form-control" id="p2_name" placeholder="Enter Full Name">
+                        </div>
+                      </div>
+                    </div>
+                    <div class="row">
+                      <div class="col-md-6">
+                        <div class="form-group">
+                          <label for="exampleInputEmail1">Problems Solved</label>
+                          <input type="text" class="form-control" id="solved_prob" placeholder="Enter Problems Solved">
+                        </div>
+                      </div>
+                      <div class="col-md-6">
+                        <div class="form-group">
+                          <label for="exampleInputEmail1">Total Problems</label>
+                          <input type="text" class="form-control" id="total_prob" placeholder="Enter Total Problems">
                         </div>
                       </div>
                     </div>

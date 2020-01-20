@@ -283,19 +283,18 @@
                     <div class="row">
                       <div class="col-md-12">
                         <div class="form-group">
-                          <label for="exampleInputEmail1">Team Name</label>
-                          <input type="text" class="form-control" id="exampleInputEmail1" placeholder="Enter Team Name">
+                          <label for="exampleInputEmail1">Team ID</label>
+                          <input type="text" class="form-control" id="team_id" placeholder="Enter Team ID">
                         </div>
                       </div>
                     </div>
-                    <div class="row">
+                    <!-- <div class="row">
                       <div class="col-md-6">
                         <div class="form-group">
                           <label for="exampleInputEmail1">Event Name</label>
                           <select type="text" class="form-control" id="exampleInputEmail1" placeholder="Enter Event Name">
                             <option default>Select Event</option>
                             <option>Tech Cup</option>
-                            <option>Procom</option>
                           </select>
                         </div>
                       </div>
@@ -305,7 +304,7 @@
                           <input type="text" class="form-control" id="exampleInputEmail1" placeholder="Enter Event Year">
                         </div>
                       </div>
-                    </div>
+                    </div> -->
                   </div>
                   <!-- /.card-body -->
                   <div class="card-footer text-right">
@@ -329,10 +328,25 @@
                 <form role="form">
                   <div class="card-body">
                     <div class="row">
-                      <div class="col-md-4">
+                      <div class="col-md-6">
+                        <div class="form-group">
+                          <label for="exampleInputEmail1">Event Name</label>
+                          <select type="text" class="form-control" id="event_name" readonly placeholder="Enter Event Name">
+                            <option default>Select Event</option>
+                            <option>Tech Cup</option>
+                          </select>
+                        </div>
+                      </div>
+                      <div class="col-md-6">
+                        <div class="form-group">
+                          <label for="exampleInputEmail1">Year</label>
+                          <input type="text" class="form-control" id="year" readonly placeholder="Enter Event Year">
+                        </div>
+                      </div>
+                      <div class="col-md-6">
                         <div class="form-group">
                           <label>Competition Name</label>
-                          <select class="form-control" readonly>
+                          <select class="form-control" id="comp_name" readonly>
                             <option>Select Competition</option>
                             <option>Web Development</option>
                             <option>Mobile App Development</option>
@@ -342,58 +356,66 @@
                           </select>
                         </div>
                       </div>
-                      <div class="col-md-4">
+                      <div class="col-md-6">
                         <div class="form-group">
                           <label for="exampleInputEmail1">Team Name</label>
-                          <input type="text" class="form-control" id="exampleInputEmail1" placeholder="Enter Team Name" readonly>
+                          <input type="text" class="form-control" id="team_name" placeholder="Enter Team Name" readonly>
                         </div>
                       </div>
-                      <div class="col-md-4">
+                      <!-- <div class="col-md-4">
                         <div class="form-group">
                           <label for="exampleInputEmail1">Leader Contact no.</label>
-                          <input type="number" class="form-control" id="exampleInputEmail1" placeholder="Enter Contact no." readonly>
+                          <input type="number" class="form-control" id="leader_contact" placeholder="Enter Contact no." readonly>
                         </div>
-                      </div>
+                      </div> -->
                     </div>
                     <div class="row">
                       <div class="col-md-6">
                         <div class="form-group">
-                          <label for="exampleInputEmail1">Leader NU-Email</label>
-                          <input type="text" class="form-control" id="exampleInputEmail1" placeholder="Enter NU-ID (K16-1234)" readonly>
+                          <label for="exampleInputEmail1">Leader NU-ID</label>
+                          <input type="text" class="form-control" id="leader_id" placeholder="Enter NU-ID (K161234)" readonly>
                         </div>
                       </div>
                       <div class="col-md-6">
                         <div class="form-group">
                           <label for="exampleInputEmail1">Leader Full Name</label>
-                          <input type="text" class="form-control" id="exampleInputEmail1" placeholder="Enter Full Name" readonly>
+                          <input type="text" class="form-control" id="leader_name" placeholder="Enter Full Name" readonly>
+                        </div>
+                      </div>
+                    </div>
+                    <div class="row">
+                      <div class="col-md-12">
+                        <div class="form-group">
+                          <label for="exampleInputEmail1">Leader Contact no.</label>
+                          <input type="number" class="form-control" id="leader_contact" placeholder="Enter Contact no." readonly>
                         </div>
                       </div>
                     </div>
                     <div class="row">
                       <div class="col-md-6">
                         <div class="form-group">
-                          <label for="exampleInputEmail1">Participant no.01 NU-Email</label>
-                          <input type="text" class="form-control" id="exampleInputEmail1" placeholder="Enter NU-ID (K16-1234)" readonly>
+                          <label for="exampleInputEmail1">Participant 1: NU-ID</label>
+                          <input type="text" class="form-control" id="p1_id" placeholder="Enter NU-ID (K161234)" readonly>
                         </div>
                       </div>
                       <div class="col-md-6">
                         <div class="form-group">
-                          <label for="exampleInputEmail1">Participant no.01 Full Name</label>
-                          <input type="text" class="form-control" id="exampleInputEmail1" placeholder="Enter Full Name" readonly>
+                          <label for="exampleInputEmail1">Participant 1: Full Name</label>
+                          <input type="text" class="form-control" id="p1_name" placeholder="Enter Full Name" readonly>
                         </div>
                       </div>
                     </div>
                     <div class="row">
                       <div class="col-md-6">
                         <div class="form-group">
-                          <label for="exampleInputEmail1">Participant no.02 NU-Email</label>
-                          <input type="text" class="form-control" id="exampleInputEmail1" placeholder="Enter NU-ID (K16-1234)" readonly>
+                          <label for="exampleInputEmail1">Participant 2: NU-ID</label>
+                          <input type="text" class="form-control" id="p2_id" placeholder="Enter NU-ID (K161234)" readonly>
                         </div>
                       </div>
                       <div class="col-md-6">
                         <div class="form-group">
-                          <label for="exampleInputEmail1">Participant no.02 Full Name</label>
-                          <input type="text" class="form-control" id="exampleInputEmail1" placeholder="Enter Full Name" readonly>
+                          <label for="exampleInputEmail1">Participant 2: Full Name</label>
+                          <input type="text" class="form-control" id="p2_name" placeholder="Enter Full Name" readonly>
                         </div>
                       </div>
                     </div>
@@ -401,13 +423,13 @@
                       <div class="col-md-6">
                         <div class="form-group">
                           <label for="exampleInputEmail1">Problems Solved</label>
-                          <input type="text" class="form-control" id="exampleInputEmail1" placeholder="Enter Problems Solved" readonly>
+                          <input type="text" class="form-control" id="solved_prob" placeholder="Enter Problems Solved" readonly>
                         </div>
                       </div>
                       <div class="col-md-6">
                         <div class="form-group">
                           <label for="exampleInputEmail1">Total Problems</label>
-                          <input type="text" class="form-control" id="exampleInputEmail1" placeholder="Enter Total Problems" readonly>
+                          <input type="text" class="form-control" id="total_prob" placeholder="Enter Total Problems" readonly>
                         </div>
                       </div>
                     </div>
