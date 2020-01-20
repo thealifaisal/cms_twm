@@ -27,7 +27,6 @@
 
 // called function onclick on submit button
 function regTeam(){
-
   var event_name = document.getElementById("event_name").value;
   var year = document.getElementById("year").value;
   var comp_name = document.getElementById("comp_name").value;
@@ -57,12 +56,16 @@ function regTeam(){
   xhttp.open("POST", "http://192.168.1.100/SourceCode/php/register_team.php?"+dataString, true);
   xhttp.onreadystatechange = function(){
     if(this.readyState == 4 && this.status == 200){
-      console.log("response ready");
-      window.alert("Team ID: " + this.responseText +"\nSave this ID for later use.");
+      if(this.responseText.includes("error")){
+        alert("Server-Side Error\nError: " + this.responseText);
+        return 0;
+      }
+      else{
+        window.alert("Team ID: " + this.responseText +"\nSave this ID for later use.");
+      }
     }
   };
   xhttp.send();
-
 } // regTeam()
 
 function checkFields(){
