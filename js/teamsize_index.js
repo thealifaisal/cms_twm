@@ -31,5 +31,4 @@ xhttp.onreadystatechange = function(){
     }
   }
 };
-
 xhttp.send();

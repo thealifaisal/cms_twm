@@ -309,7 +309,8 @@
                   </div>
                   <!-- /.card-body -->
                   <div class="card-footer text-right">
-                    <button type="submit" class="btn btn-primary">Fetch Record</button>
+                    <!-- if type is submit which is also default type then onclick the page refreshes -->
+                    <button type="button" onclick="fetchTeam()" class="btn btn-primary">Fetch Record</button>
                   </div>
                 </form>
               </div>
@@ -437,7 +438,7 @@
                   </div>
                   <!-- /.card-body -->
                   <div class="card-footer text-right">
-                    <button type="submit" onclick="" class="btn btn-primary">Update</button>
+                    <button type="button" onclick="" class="btn btn-primary">Update</button>
                   </div>
                 </form>
               </div>
@@ -480,6 +481,7 @@
       bsCustomFileInput.init();
     });
   </script>
+  <script src="../../js/fetch_team.js"></script>
 </body>
 
 </html>
