@@ -1,17 +1,4 @@
 
-// keys used in GET/POST in php
-  // $e_name = trim($_GET["ENAME"]);
-  // $c_name = trim($_GET["CNAME"]);
-  // $ce_year = intVal(trim($_GET["YEAR"]));
-  // $t_name = trim($_GET["TNAME"]);
-  // $l_id = trim($_GET["LID"]);
-  // $l_name = trim($_GET["LNAME"]);
-  // $l_contact = trim($_GET["LCNO"]);
-  // $p1_id = trim($_GET["P1ID"]);
-  // $p1_name = trim($_GET["P1NAME"]);
-  // $p2_id = trim($_GET["P2ID"]);
-  // $p2_name = trim($_GET["P2NAME"]);
-
 // element id`s
   // event_name
   // year
@@ -82,7 +69,8 @@ function checkFields(){
   var p2_name = document.getElementById("p2_name").value;
 
   if(event_name == "Select Event" || comp_name == "Select Competition" || year == "" || team_name == ""
-  || leader_id == "" || leader_name == "" || leader_contact == "" || p1_id == "" || p1_name == ""){
+  || leader_id == "" || leader_name == "" || leader_contact == "" || (p1_id != "" && p1_name == "") || total_prob == "" || solved_prob == ""
+  || (p2_id != "" && p2_name == "")){
     console.log("incomplete fields");
     return 0;
   }
@@ -91,3 +79,16 @@ function checkFields(){
     return 1;
   }
 }// checkFields()
+
+// keys used in GET/POST in php
+  // $e_name = trim($_GET["ENAME"]);
+  // $c_name = trim($_GET["CNAME"]);
+  // $ce_year = intVal(trim($_GET["YEAR"]));
+  // $t_name = trim($_GET["TNAME"]);
+  // $l_id = trim($_GET["LID"]);
+  // $l_name = trim($_GET["LNAME"]);
+  // $l_contact = trim($_GET["LCNO"]);
+  // $p1_id = trim($_GET["P1ID"]);
+  // $p1_name = trim($_GET["P1NAME"]);
+  // $p2_id = trim($_GET["P2ID"]);
+  // $p2_name = trim($_GET["P2NAME"]);
