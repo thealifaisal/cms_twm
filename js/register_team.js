@@ -53,7 +53,7 @@ function regTeam(){
   // console.log(dataString);
 
   var xhttp = new XMLHttpRequest();
-  xhttp.open("POST", "http://192.168.1.100/SourceCode/php/register_team.php?"+dataString, true);
+  xhttp.open("POST", "http://192.168.1.102/SourceCode/php/register_team.php?"+dataString, true);
   xhttp.onreadystatechange = function(){
     if(this.readyState == 4 && this.status == 200){
       if(this.responseText.includes("error")){

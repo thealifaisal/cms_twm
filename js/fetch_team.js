@@ -11,7 +11,7 @@ function fetchTeam(){
   }
 
   var xhttp = new XMLHttpRequest();
-  xhttp.open("POST", "http://192.168.1.100/SourceCode/php/fetch_team.php?TID="+team_id, true);
+  xhttp.open("POST", "http://192.168.1.102/SourceCode/php/fetch_team.php?TID="+team_id, true);
   xhttp.onreadystatechange = function(){
     if(this.readyState == 4 && this.status == 200){
       if(this.responseText.includes("error")){
