@@ -67,7 +67,7 @@ else{
 // echo "$ce_ID";
 
 // now update into event_team table
-$update_ET = "UPDATE event_team SET team_name = $t_name WHERE team_id = $t_id";
+$update_ET = "UPDATE event_team SET team_name = '$t_name' WHERE team_id = $t_id";
 $r_update_ET = $conn->query($update_ET) or die("error: " . $conn->error);
 // $t_ID = $conn->insert_id;
 
@@ -91,13 +91,13 @@ $r_update_RS = $conn->query($update_RS) or die("error: " . $conn->error);
 
 // if there is a first participant
 if($p1_id != ""){
-  $update_PA = "UPDATE participants SET full_name = $p1_name WHERE nu_id = $p1_id";
+  $update_PA = "UPDATE participants SET full_name = '$p1_name' WHERE nu_id = $p1_id";
   $r_update_PA = $conn->query($update_PA);
 }
 
 // if there is a second participant
 if($p2_id != ""){
-  $update_PA = "UPDATE participants SET full_name = $p2_name WHERE nu_id = $p2_id";
+  $update_PA = "UPDATE participants SET full_name = '$p2_name' WHERE nu_id = $p2_id";
   $r_update_PA = $conn->query($update_PA);
 }
 
@@ -118,10 +118,10 @@ else{
 
   $leader_id = $l_id;
 
-  $update_PA = "UPDATE participants SET full_name = $l_name WHERE nu_id = $l_id";
+  $update_PA = "UPDATE participants SET full_name = '$l_name' WHERE nu_id = $l_id";
   $r_update_PA = $conn->query($update_PA);
 
-  $update_PA = "UPDATE leader SET contact_no = $l_contact WHERE nu_id = $l_id AND team_id = $t_id";
+  $update_PA = "UPDATE leader SET contact_no = '$l_contact' WHERE nu_id = $l_id AND team_id = $t_id";
   $r_update_PA = $conn->query($update_PA);
 }
 
