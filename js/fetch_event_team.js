@@ -27,8 +27,10 @@ function fetchTeam(){
 
         var members = data["members"];
         var team_name = data["team_name"];
-        var solved_prob = data["solved_prob"];
-        var total_prob = data["total_prob"];
+        // Since we dont want below commented data on update and delete page
+        // we will not use this and wont get data from php
+        // var solved_prob = data["solved_prob"];
+        // var total_prob = data["total_prob"];
         var comp_name = data["comp_name"];
         var event_name = data["event_name"];
         var event_year = data["event_year"];
@@ -75,8 +77,8 @@ function fetchTeam(){
         document.getElementById("leader_id").value = l_id;
         document.getElementById("leader_name").value = l_name;
         document.getElementById("leader_contact").value = l_cno;
-        document.getElementById("total_prob").value = total_prob;
-        document.getElementById("solved_prob").value = solved_prob;
+        // document.getElementById("total_prob").value = total_prob;
+        // document.getElementById("solved_prob").value = solved_prob;
 
         for(var i=0; i<p_id.length; i++){
           document.getElementById("p"+(i+1)+"_id").value = p_id[i];

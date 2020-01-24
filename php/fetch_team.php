@@ -5,7 +5,7 @@ include "connect_cms.php";
 $conn = openConn();
 
 $team_id = intVal(trim($_GET["TID"]));
-// $team_id = 1;
+// $team_id = 3;
 
 // fetch team name from event_team
 $get_teamname = "SELECT team_name FROM event_team WHERE team_id = $team_id";
@@ -21,12 +21,16 @@ $team_name = $r_get_teamname->fetch_assoc();
 $team_name = $team_name["team_name"];
 
 // fetch compevent_id, solved_prob, total_prob
-$get_CEST = "SELECT compevent_id, solved_prob, total_prob FROM roundscore WHERE team_id = $team_id";
+// $get_CEST = "SELECT compevent_id, solved_prob, total_prob FROM roundscore WHERE team_id = $team_id";
+// the change is made because on update team and delete team page we dont want score
+// which is solved_prob, total_prob. Since these fields are not required we will get multiple
+// compevent_id s, since we want just one we will add a UNIQUE constraint on SELECT statement.
+$get_CEST = "SELECT DISTINCT compevent_id FROM roundscore WHERE team_id = $team_id";
 $r_get_CEST = $conn->query($get_CEST) or die("error: " . $conn->error);
 $row = $r_get_CEST->fetch_assoc();
 $ce_id = $row["compevent_id"];
-$sp = $row["solved_prob"];
-$tp = $row["total_prob"];
+// $sp = $row["solved_prob"];
+// $tp = $row["total_prob"];
 
 // fetch participants and leader
 // -- fetch nu_id from leader table against team_id as sub-query and search in participants
@@ -91,8 +95,8 @@ foreach($part_arr as $row){
 
 $data["members"] = $participants;
 $data["team_name"] = $team_name;
-$data["solved_prob"] = $sp;
-$data["total_prob"] = $tp;
+// $data["solved_prob"] = $sp;
+// $data["total_prob"] = $tp;
 $data["comp_name"] = $c_name;
 $data["event_name"] = $e_name;
 $data["event_year"] = $_year;
