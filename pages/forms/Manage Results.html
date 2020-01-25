@@ -440,7 +440,7 @@
                         <div class="form-group">
                           <label>Competition Name</label>
                           <select type="text" class="form-control" id="comp_name_form2">
-                            <option>Select Competition</option>
+                            <option default>Select Competition</option>
                             <option>Web Development</option>
                             <option>Mobile App Development</option>
                             <option>Speed Programming</option>
@@ -473,7 +473,7 @@
                   </div>
                   <!-- /.card-body -->
                   <div class="card-footer text-right">
-                    <button type="button" id="submit_result" class="btn btn-primary">Submit Result</button>
+                    <button type="button" id="submit_result" onclick="insertResults()" class="btn btn-primary">Submit Result</button>
                   </div>
                 </form>
               </div>
@@ -518,6 +518,7 @@
     document.getElementById("submit_score").disabled = true;
   </script>
   <script src="../../js/update_score.js"></script>
+  <script src="../../js/insert_final_results.js"></script>
 </body>
 
 </html>
