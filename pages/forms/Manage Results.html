@@ -291,7 +291,7 @@
                         <div class="form-group">
                           <label>Round Name</label>
                           <select class="form-control" id="round_name_form0">
-                            <option>Select Qualifier</option>
+                            <option default>Select Round</option>
                             <option>Round 1</option>
                             <option>Qualifier 1</option>
                             <option>Qualifier 2</option>
@@ -302,7 +302,7 @@
                   </div>
                   <!-- /.card-body -->
                   <div class="card-footer text-right">
-                    <button type="button" class="btn btn-primary">Fetch Record</button>
+                    <button type="button" onclick="fetch_results()" class="btn btn-primary">Fetch Record</button>
                   </div>
                 </form>
               </div>
@@ -407,8 +407,7 @@
                   </div>
                   <!-- /.card-body -->
                   <div class="card-footer text-right">
-                    <button type="submit" class="btn btn-success">Reset Form</button>
-                    <button type="button" class="btn btn-primary">Submit Result</button>
+                    <button type="button" id="submit_score" onclick="update_results()" class="btn btn-primary">Submit Result</button>
                   </div>
                 </form>
               </div>
@@ -474,8 +473,7 @@
                   </div>
                   <!-- /.card-body -->
                   <div class="card-footer text-right">
-                    <button type="submit" class="btn btn-success">Reset Form</button>
-                    <button type="button" class="btn btn-primary">Submit Result</button>
+                    <button type="button" id="submit_result" class="btn btn-primary">Submit Result</button>
                   </div>
                 </form>
               </div>
@@ -517,7 +515,9 @@
     $(document).ready(function () {
       bsCustomFileInput.init();
     });
+    document.getElementById("submit_score").disabled = true;
   </script>
+  <script src="../../js/update_score.js"></script>
 </body>
 
 </html>

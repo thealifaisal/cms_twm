@@ -16,8 +16,8 @@ $p1_id = trim($_GET["P1ID"]);
 $p1_name = trim($_GET["P1NAME"]);
 $p2_id = trim($_GET["P2ID"]);
 $p2_name = trim($_GET["P2NAME"]);
-$total_prob = intVal(trim($_GET["TP"]));
-$solved_prob = intVal(trim($_GET["SP"]));
+// $total_prob = intVal(trim($_GET["TP"]));
+// $solved_prob = intVal(trim($_GET["SP"]));
 
 // modal data
 // $e_name = "Tech Cup";
@@ -82,7 +82,8 @@ $r_update_ET = $conn->query($update_ET) or die("error: " . $conn->error);
 // 103: Qualifier 2
 
 // since the team is being registered we will insert 101 in roundscore.round_id
-$update_RS = "UPDATE roundscore SET compevent_id = $ce_ID, solved_prob = $solved_prob, total_prob = $total_prob WHERE team_id = $t_id";
+// $update_RS = "UPDATE roundscore SET compevent_id = $ce_ID, solved_prob = $solved_prob, total_prob = $total_prob WHERE team_id = $t_id";
+$update_RS = "UPDATE roundscore SET compevent_id = $ce_ID WHERE team_id = $t_id";
 $r_update_RS = $conn->query($update_RS) or die("error: " . $conn->error);
 
 // now insert into participants
