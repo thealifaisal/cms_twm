@@ -79,7 +79,7 @@ function update_results(){
       else{
         if(this.responseText.includes("success")){
           document.getElementById("submit_score").disabled = true;
-          alert("score updated!");
+          alert("Update Successful!");
           return 0;
         }
       }
