@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Jan 19, 2020 at 01:31 PM
+-- Generation Time: Jan 25, 2020 at 08:42 PM
 -- Server version: 10.4.8-MariaDB
 -- PHP Version: 7.3.10
 
@@ -55,10 +55,17 @@ CREATE TABLE `compevent` (
   `comp_id` int(11) NOT NULL,
   `event_id` int(11) NOT NULL,
   `year` int(11) NOT NULL,
-  `winner_team_id` int(11) NOT NULL,
-  `runner_up_team_id` int(11) NOT NULL,
+  `winner_team_id` int(11) DEFAULT NULL,
+  `runner_up_team_id` int(11) DEFAULT NULL,
   `head_nu_id` varchar(15) DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+
+--
+-- Dumping data for table `compevent`
+--
+
+INSERT INTO `compevent` (`compevent_id`, `comp_id`, `event_id`, `year`, `winner_team_id`, `runner_up_team_id`, `head_nu_id`) VALUES
+(3, 103, 101, 2020, 0, 0, NULL);
 
 -- --------------------------------------------------------
 
@@ -89,6 +96,13 @@ CREATE TABLE `event_team` (
   `team_name` varchar(100) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
+--
+-- Dumping data for table `event_team`
+--
+
+INSERT INTO `event_team` (`team_id`, `team_name`) VALUES
+(3, 'Webster');
+
 -- --------------------------------------------------------
 
 --
@@ -100,6 +114,15 @@ CREATE TABLE `leader` (
   `team_id` int(11) NOT NULL,
   `contact_no` varchar(20) DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+
+--
+-- Dumping data for table `leader`
+--
+
+INSERT INTO `leader` (`nu_id`, `team_id`, `contact_no`) VALUES
+('K173791', 3, '03451248906'),
+('K173851', 3, NULL),
+('K173881', 3, NULL);
 
 -- --------------------------------------------------------
 
@@ -147,9 +170,18 @@ CREATE TABLE `mem_proj` (
 
 CREATE TABLE `participants` (
   `nu_id` varchar(15) NOT NULL,
-  `nu_mail` int(100) NOT NULL,
-  `full_name` int(100) NOT NULL
+  `nu_mail` varchar(100) NOT NULL,
+  `full_name` varchar(100) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+
+--
+-- Dumping data for table `participants`
+--
+
+INSERT INTO `participants` (`nu_id`, `nu_mail`, `full_name`) VALUES
+('K173791', 'K173791@nu.edu.pk', 'Ali Faisal'),
+('K173851', 'K173851@nu.edu.pk', 'Shayan'),
+('K173881', 'K173881@nu.edu.pk', 'Saba');
 
 -- --------------------------------------------------------
 
@@ -245,6 +277,13 @@ CREATE TABLE `roundscore` (
   `compevent_id` int(11) NOT NULL,
   `team_id` int(11) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+
+--
+-- Dumping data for table `roundscore`
+--
+
+INSERT INTO `roundscore` (`solved_prob`, `total_prob`, `round_id`, `compevent_id`, `team_id`) VALUES
+(0, 0, 101, 3, 3);
 
 -- --------------------------------------------------------
 
@@ -395,13 +434,13 @@ ALTER TABLE `twm_team`
 -- AUTO_INCREMENT for table `compevent`
 --
 ALTER TABLE `compevent`
-  MODIFY `compevent_id` int(11) NOT NULL AUTO_INCREMENT;
+  MODIFY `compevent_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
 
 --
 -- AUTO_INCREMENT for table `event_team`
 --
 ALTER TABLE `event_team`
-  MODIFY `team_id` int(11) NOT NULL AUTO_INCREMENT;
+  MODIFY `team_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
 
 --
 -- Constraints for dumped tables
