@@ -276,6 +276,7 @@
                 <thead>
                 <tr>
                   <th>Team Name</th>
+                  <th>Event Name</th>
                   <th>Competition Name</th>
                   <th>Leader ID</th>
                   <th>Leader Name</th>
@@ -299,6 +300,7 @@
                     </td>
                     <td>Win 95+</td>
                     <td> 4</td>
+                    <td> 2020</td>
                   </tr>
                   <tr>
                     <td>Trident</td>
@@ -313,9 +315,10 @@
                     </td>
                     <td>Win 95+</td>
                     <td> 4</td>
+                    <td> 2020</td>
                   </tr>
                 </tbody>
-                <tfoot>
+                <!-- <tfoot>
                 <tr>
                   <th>Team Name</th>
                   <th>Competition Name</th>
@@ -326,7 +329,7 @@
                   <th>Total Problems</th>
                   <th>Year</th>
                 </tr>
-                </tfoot>
+                </tfoot> -->
               </table>
             </div>
             <!-- /.card-body -->
@@ -343,10 +346,11 @@
             </div>
             <!-- /.card-header -->
             <div class="card-body">
-              <table id="example1" class="table table-bordered table-hover">
+              <table id="example2" class="table table-bordered table-hover">
                 <thead>
                 <tr>
                   <th>Team Name</th>
+                  <th>Event Name</th>
                   <th>Competition Name</th>
                   <th>Leader NU-Email</th>
                   <th>Leader Name</th>
@@ -370,6 +374,7 @@
                     </td>
                     <td>Win 95+</td>
                     <td> 4</td>
+                    <td> 2020</td>
                   </tr>
                   <tr>
                     <td>Trident</td>
@@ -384,9 +389,10 @@
                     </td>
                     <td>Win 95+</td>
                     <td> 4</td>
+                    <td> 2020</td>
                   </tr>
                 </tbody>
-                <tfoot>
+                <!-- <tfoot>
                 <tr>
                   <th>Team Name</th>
                   <th>Competition Name</th>
@@ -397,7 +403,7 @@
                   <th>Total Problems</th>
                   <th>Year</th>
                 </tr>
-                </tfoot>
+                </tfoot> -->
               </table>
             </div>
             <!-- /.card-body -->
@@ -414,9 +420,10 @@
             </div>
             <!-- /.card-header -->
             <div class="card-body">
-              <table id="example1" class="table table-bordered table-hover">
+              <table id="example3" class="table table-bordered table-hover">
                 <thead>
                 <tr>
+                  <th>Event Name</th>
                   <th>Competition Name</th>
                   <th>Winner Team</th>
                   <th>Runner Up Team</th>
@@ -431,6 +438,7 @@
                   </td>
                   <td>Win 95+</td>
                   <td> 4</td>
+                  <td>2020</td>
                 </tr>
                 <tr>
                   <td>Trident</td>
@@ -439,16 +447,17 @@
                   </td>
                   <td>Win 95+</td>
                   <td>5</td>
+                  <td>2020</td>
                 </tr>
                 </tbody>
-                <tfoot>
+                <!-- <tfoot>
                 <tr>
                   <th>Competition Name</th>
                   <th>Winner Team</th>
                   <th>Runner Up Team</th>
                   <th>Year</th>
                 </tr>
-                </tfoot>
+                </tfoot> -->
               </table>
             </div>
             <!-- /.card-body -->
@@ -492,7 +501,8 @@
 <script>
   $(function () {
     $("#example1").DataTable();
-    $('#example2').DataTable({
+    $("#example2").DataTable();
+    $('#example3').DataTable({
       "paging": true,
       "lengthChange": false,
       "searching": false,
@@ -501,6 +511,7 @@
       "autoWidth": false,
     });
   });
+
 </script>
 </body>
 </html>
