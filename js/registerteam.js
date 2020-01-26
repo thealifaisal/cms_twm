@@ -69,7 +69,7 @@ function checkFields(){
   var p2_name = document.getElementById("p2_name").value;
 
   if(event_name == "Select Event" || comp_name == "Select Competition" || year == "" || team_name == ""
-  || leader_id == "" || leader_name == "" || leader_contact == "" || (p1_id != "" && p1_name == "") || total_prob == "" || solved_prob == ""
+  || leader_id == "" || leader_name == "" || leader_contact == "" || (p1_id != "" && p1_name == "")
   || (p2_id != "" && p2_name == "")){
     console.log("incomplete fields");
     return 0;
