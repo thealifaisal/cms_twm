@@ -150,25 +150,25 @@
                 </a>
               </li>
               <li class="nav-item">
-                <a href="../tables/Co Heads.html" class="nav-link">
+                <a href="../tables/Co Heads.php" class="nav-link">
                   <i class="far fa-circle nav-icon"></i>
                   <p>Co-Heads</p>
                 </a>
               </li>
               <li class="nav-item">
-                <a href="../tables/Project Managers.html" class="nav-link">
+                <a href="../tables/Project Managers.php" class="nav-link">
                   <i class="far fa-circle nav-icon"></i>
                   <p>Project Managers</p>
                 </a>
               </li>
               <li class="nav-item">
-                <a href="../tables/Members.html" class="nav-link">
+                <a href="../tables/Members.php" class="nav-link">
                   <i class="far fa-circle nav-icon"></i>
                   <p>Members</p>
                 </a>
               </li>
               <li class="nav-item">
-                <a href="../tables/Learners.html" class="nav-link">
+                <a href="../tables/Learners.php" class="nav-link">
                   <i class="far fa-circle nav-icon"></i>
                   <p>Learners</p>
                 </a>
@@ -268,7 +268,7 @@
         <div class="col-12">
           <div class="card">
             <div class="card-header">
-              <h3 class="card-title">All Members</h3>
+              <h3 class="card-title">All Learners</h3>
             </div>
             <!-- /.card-header -->
             <div class="card-body">
@@ -281,43 +281,53 @@
                   <th>NU Email</th>
                   <th>Role</th>
                   <th>Year</th>
-                  <th>Communication Skills</th>
-                  <th>Technical Skills</th>
-                  <th>Management Skills</th>
-                  <th>Team Player</th>
+                  <th>Comm Skills</th>
+                  <th>Tech Skills</th>
                 </tr>
                 </thead>
                 <tbody>
-                <tr>
-                  <td>Trident</td>
-                  <td>Internet
-                    Explorer 4.0
-                  </td>
-                  <td>Win 95+</td>
-                  <td> 4</td>
-                  <td>X</td>
-                  <td>X</td>
-                  <td>Win 95+</td>
-                  <td> 4</td>
-                  <td>X</td>
-                  <td>X</td>
-                </tr>
-                <tr>
-                  <td>Trident</td>
-                  <td>Internet
-                    Explorer 5.0
-                  </td>
-                  <td>Win 95+</td>
-                  <td>5</td>
-                  <td>C</td>
-                  <td>X</td>
-                  <td>Win 95+</td>
-                  <td> 4</td>
-                  <td>X</td>
-                  <td>X</td>
-                </tr>
+                  <?php
+                    $servername = "localhost";
+                    $username = "alifaisal";
+                    $password = "7789";
+                    $dbname = "cms_twm";
+
+                    // Create connection
+                    $conn = new mysqli($servername, $username, $password, $dbname);
+                    // Check connection
+                    if ($conn->connect_error) {
+                        die("Connection failed: " . $conn->connect_error);
+                    }
+                    $q =
+                    "SELECT member.nu_id AS nu_id, full_name, gender , nu_email , role_name, year_join, comm_skill,tech_skill
+                    FROM member, skill, role
+                    WHERE member.nu_id = skill.nu_id AND member.role_id = role.role_id
+                    AND
+                    team_id IS NULL AND
+                    role_name <> 'Faculty Head' AND
+                    role_name <> 'Co-Faculty Head' AND
+                    role_name <> 'President' AND
+                    role_name <> 'Vice President' AND
+                    role_name <> 'General Secretary'
+                    ";
+                    $res = $conn->query($q) or die("Error: " . $conn->error);
+                        while($row = $res->fetch_assoc()){?>
+                          <tr>
+                          <td><?php echo $row["nu_id"]; ?></td>
+                          <td><?php echo $row["full_name"]; ?> </td>
+                          <td><?php echo $row["gender"]; ?></td>
+                          <td><?php echo  $row["nu_email"]; ?></td>
+                          <td><?php echo $row["role_name"];?></td>
+                          <td><?php echo $row["year_join"];?></td>
+                          <td><?php echo $row["comm_skill"];?></td>
+                          <td> <?php echo $row["tech_skill"];?></td>
+                        </tr>
+                        <?php
+                      }
+                    $conn->close();
+                    ?>
                 </tbody>
-                <tfoot>
+                <!-- <tfoot>
                 <tr>
                   <th>NU ID</th>
                   <th>Full Name</th>
@@ -327,10 +337,8 @@
                   <th>Year</th>
                   <th>Communication Skills</th>
                   <th>Technical Skills</th>
-                  <th>Management Skills</th>
-                  <th>Team Player</th>
                 </tr>
-                </tfoot>
+                </tfoot> -->
               </table>
             </div>
             <!-- /.card-body -->
