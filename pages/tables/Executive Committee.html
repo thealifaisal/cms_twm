@@ -150,25 +150,25 @@
                 </a>
               </li>
               <li class="nav-item">
-                <a href="../tables/Co Heads.html" class="nav-link">
+                <a href="../tables/Co Heads.php" class="nav-link">
                   <i class="far fa-circle nav-icon"></i>
                   <p>Co-Heads</p>
                 </a>
               </li>
               <li class="nav-item">
-                <a href="../tables/Project Managers.html" class="nav-link">
+                <a href="../tables/Project Managers.php" class="nav-link">
                   <i class="far fa-circle nav-icon"></i>
                   <p>Project Managers</p>
                 </a>
               </li>
               <li class="nav-item">
-                <a href="../tables/Members.html" class="nav-link">
+                <a href="../tables/Members.php" class="nav-link">
                   <i class="far fa-circle nav-icon"></i>
                   <p>Members</p>
                 </a>
               </li>
               <li class="nav-item">
-                <a href="../tables/Learners.html" class="nav-link">
+                <a href="../tables/Learners.php" class="nav-link">
                   <i class="far fa-circle nav-icon"></i>
                   <p>Learners</p>
                 </a>
@@ -283,29 +283,9 @@
                   <th>Year</th>
                 </tr>
                 </thead>
-                <tbody>
-                <tr>
-                  <td>Trident</td>
-                  <td>Trident</td>
-                  <td>Internet
-                    Explorer 4.0
-                  </td>
-                  <td>Win 95+</td>
-                  <td> 4</td>
-                  <td>X</td>
-                </tr>
-                <tr>
-                  <td>Trident</td>
-                  <td>Internet
-                    Explorer 5.0
-                  </td>
-                  <td>Win 95+</td>
-                  <td>5</td>
-                  <td>C</td>
-                  <td>X</td>
-                </tr>
+                <tbody id="ExCom">
                 </tbody>
-                <tfoot>
+                <!-- <tfoot>
                 <tr>
                   <th>NU ID</th>
                   <th>Full Name</th>
@@ -314,7 +294,7 @@
                   <th>Role</th>
                   <th>Year</th>
                 </tr>
-                </tfoot>
+                </tfoot> -->
               </table>
             </div>
             <!-- /.card-body -->
@@ -354,14 +334,18 @@
 <script src="../../dist/js/adminlte.min.js"></script>
 <!-- AdminLTE for demo purposes -->
 <script src="../../dist/js/demo.js"></script>
+<!-- script for viewing data -->
+<script src="../../js/Executive_Committee.js"></script>
+
+
 <!-- page script -->
 <script>
   $(function () {
-    $("#example1").DataTable();
-    $('#example2').DataTable({
+    $("#example2").DataTable();
+    $('#example1').DataTable({
       "paging": true,
       "lengthChange": false,
-      "searching": false,
+      "searching": true,
       "ordering": true,
       "info": true,
       "autoWidth": false,
