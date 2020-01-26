@@ -275,9 +275,10 @@
               <table id="example1" class="table table-bordered table-hover">
                 <thead>
                 <tr>
-                  <th>Team Name</th>
-                  <th>Event Name</th>
-                  <th>Competition Name</th>
+                  <th>Team</th>
+                  <th>Event</th>
+                  <th>Event Year</th>
+                  <th>Competition</th>
                   <th>Leader NU-ID</th>
                   <th>Leader Name</th>
                   <th>Leader Contact</th>
@@ -285,44 +286,91 @@
                   <th>Participant 1: Name</th>
                   <th>Participant 2: ID</th>
                   <th>Participant 2: Name</th>
-                  <th>Year</th>
                 </tr>
                 </thead>
                 <tbody>
-                <tr>
-                  <td>Trident</td>
-                  <td>Trident E</td>
-                  <td>Internet
-                    Explorer 4.0
-                  </td>
-                  <td>Win 95+</td>
-                  <td> 4</td>
-                  <td>X</td>
-                  <td>Internet
-                    Explorer 4.0
-                  </td>
-                  <td>Win 95+</td>
-                  <td> 4</td>
-                  <td>X</td>
-                  <td>X</td>
-                </tr>
-                <tr>
-                  <td>Trident</td>
-                  <td>Trident E</td>
-                  <td>Internet
-                    Explorer 5.0
-                  </td>
-                  <td>Win 95+</td>
-                  <td>5</td>
-                  <td>C</td>
-                  <td>Internet
-                    Explorer 4.0
-                  </td>
-                  <td>Win 95+</td>
-                  <td> 4</td>
-                  <td>X</td>
-                  <td>X</td>
-                </tr>
+                  <?php
+                    $servername = "localhost";
+                    $username = "alifaisal";
+                    $password = "7789";
+                    $dbname = "cms_twm";
+
+                    // Create connection
+                    $conn = new mysqli($servername, $username, $password, $dbname);
+                    // Check connection
+                    if ($conn->connect_error) {
+                        die("Connection failed: " . $conn->connect_error);
+                    }
+
+                    $get_TID = "SELECT DISTINCT team_id, team_name FROM event_team";
+                    $r_get_TID = $conn->query($get_TID) or die("error: " . $conn->error);
+                    while($row = $r_get_TID->fetch_assoc()){
+
+                      $team_id = $row["team_id"];
+                      $team_name = $row["team_name"];
+
+                      $get_TID = "SELECT le.nu_id AS nu_id, full_name, contact_no FROM leader le, participants pa WHERE le.nu_id = pa.nu_id AND team_id = $team_id AND contact_no IS NOT NULL";
+                      $r_get_LE = $conn->query($get_TID) or die("error: " . $conn->error);
+                      $row3 = $r_get_LE->fetch_assoc();
+                      $leader_id = $row3["nu_id"];
+                      $leader_no = $row3["contact_no"];
+                      $leader_name = $row3["full_name"];
+
+                      // fetch participants, leader
+                      // -- fetch nu_id from leader table against team_id as sub-query and search in participants
+                      $get_PA = "SELECT nu_id, full_name FROM participants WHERE nu_id IN (SELECT nu_id FROM leader WHERE team_id = $team_id)";
+                      $r_get_PA = $conn->query($get_PA) or die("error: " . $conn->error);
+                      $part_arr = [];
+
+                      while($row5 = $r_get_PA->fetch_assoc()){
+                        $part_arr[] = $row5;
+                      }
+
+                      // fetch comp_id, event_id, year from compevent table
+                      $get_CEY = "SELECT comp_id, event_id, year FROM compevent WHERE compevent_id IN (SELECT DISTINCT compevent_id FROM roundscore WHERE team_id = $team_id)";
+                      $r_get_CEY = $conn->query($get_CEY) or die("error: " . $conn->error);
+                      $row2 = $r_get_CEY->fetch_assoc();
+                      $c_id = $row2["comp_id"];
+                      $e_id = $row2["event_id"];
+                      $_year = $row2["year"];
+
+                      // -- fetch competition_name from competition table, event_name from event table
+                      $get_E = "SELECT event_name FROM event WHERE event_id = $e_id";
+                      $r_get_E = $conn->query($get_E) or die("error: " . $conn->error);
+                      $e_name = $r_get_E->fetch_assoc();
+                      $e_name = $e_name["event_name"];
+
+                      $get_C = "SELECT competition_name FROM competition WHERE competition_id = $c_id";
+                      $r_get_C = $conn->query($get_C) or die("error: " . $conn->error);
+                      $c_name = $r_get_C->fetch_assoc();
+                      $c_name = $c_name["competition_name"];
+                      ?>
+                      <tr>
+                        <td><?php echo $team_name; ?></td>
+                        <td><?php echo $e_name; ?> </td>
+                        <td><?php echo $c_name; ?></td>
+                        <td><?php echo $_year;?></td>
+                        <td><?php echo $leader_id;?></td>
+                        <td><?php echo $leader_name;?></td>
+                        <td><?php echo $leader_no;?></td>
+
+                      <?php
+
+                      // keys: nu_id, full_name
+                      foreach($part_arr as $row1){
+                        if($row1["nu_id"] != $leader_id){
+                          ?>
+                          <td> <?php echo $row1["nu_id"];?></td>
+                          <td><?php echo $row1["full_name"];?></td>
+                          <?php
+                        }
+                      }
+                      ?>
+                    </tr>
+                    <?php
+                    }
+                    $conn->close();
+                    ?>
                 </tbody>
                 <!-- <tfoot>
                 <tr>
