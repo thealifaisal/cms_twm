@@ -313,17 +313,17 @@
                     $r_fetch_data = $conn->query($fetch_data) or die("error: " . $conn->error);
                         while($row = $r_fetch_data->fetch_assoc()){?>
                           <tr>
-                          <td><?php echo $row["team_name"]; ?></td>
-                          <td><?php echo $row["event_name"]; ?> </td>
-                          <td><?php echo $row["competition_name"]; ?></td>
-                          <td><?php echo  $row["round_name"]; ?></td>
-                          <td><?php echo $row["nu_id"];?></td>
-                          <td><?php echo $row["full_name"];?></td>
-                          <td><?php echo $row["contact_no"];?></td>
-                          <td> <?php echo $row["solved_prob"];?></td>
-                          <td><?php echo $row["total_prob"];?></td>
-                          <td><?php echo $row["year"];?></td>
-                        </tr>
+                            <td><?php echo $row["team_name"]; ?></td>
+                            <td><?php echo $row["event_name"]; ?> </td>
+                            <td><?php echo $row["competition_name"]; ?></td>
+                            <td><?php echo  $row["round_name"]; ?></td>
+                            <td><?php echo $row["nu_id"];?></td>
+                            <td><?php echo $row["full_name"];?></td>
+                            <td><?php echo $row["contact_no"];?></td>
+                            <td> <?php echo $row["solved_prob"];?></td>
+                            <td><?php echo $row["total_prob"];?></td>
+                            <td><?php echo $row["year"];?></td>
+                          </tr>
                         <?php
                       }
                     $conn->close();
