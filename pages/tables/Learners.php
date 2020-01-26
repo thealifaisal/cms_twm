@@ -299,16 +299,14 @@
                         die("Connection failed: " . $conn->connect_error);
                     }
                     $q =
-                    "SELECT member.nu_id AS nu_id, full_name, gender , nu_email , role_name, year_join, comm_skill,tech_skill
+                    "SELECT member.nu_id AS nu_id, full_name, gender , nu_email , role_name, year_join, comm_skill, tech_skill
                     FROM member, skill, role
                     WHERE member.nu_id = skill.nu_id AND member.role_id = role.role_id
                     AND
                     team_id IS NULL AND
-                    role_name <> 'Faculty Head' AND
-                    role_name <> 'Co-Faculty Head' AND
-                    role_name <> 'President' AND
-                    role_name <> 'Vice President' AND
-                    role_name <> 'General Secretary'
+                    (
+                      member.role_id BETWEEN 123 AND 125
+                    )
                     ";
                     $res = $conn->query($q) or die("Error: " . $conn->error);
                         while($row = $res->fetch_assoc()){?>
