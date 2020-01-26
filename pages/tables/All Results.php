@@ -150,25 +150,25 @@
                 </a>
               </li>
               <li class="nav-item">
-                <a href="../tables/Co Heads.html" class="nav-link">
+                <a href="../tables/Co Heads.php" class="nav-link">
                   <i class="far fa-circle nav-icon"></i>
                   <p>Co-Heads</p>
                 </a>
               </li>
               <li class="nav-item">
-                <a href="../tables/Project Managers.html" class="nav-link">
+                <a href="../tables/Project Managers.php" class="nav-link">
                   <i class="far fa-circle nav-icon"></i>
                   <p>Project Managers</p>
                 </a>
               </li>
               <li class="nav-item">
-                <a href="../tables/Members.html" class="nav-link">
+                <a href="../tables/Members.php" class="nav-link">
                   <i class="far fa-circle nav-icon"></i>
                   <p>Members</p>
                 </a>
               </li>
               <li class="nav-item">
-                <a href="../tables/Learners.html" class="nav-link">
+                <a href="../tables/Learners.php" class="nav-link">
                   <i class="far fa-circle nav-icon"></i>
                   <p>Learners</p>
                 </a>
@@ -194,19 +194,19 @@
             </a>
             <ul class="nav nav-treeview">
               <li class="nav-item">
-                <a href="../tables/Competition Heads.html" class="nav-link active">
+                <a href="../tables/Competition Heads.php" class="nav-link active">
                   <i class="far fa-circle nav-icon"></i>
                   <p>Competition Heads</p>
                 </a>
               </li>
               <li class="nav-item">
-                <a href="../tables/All Teams.html" class="nav-link">
+                <a href="../tables/All Teams.php" class="nav-link">
                   <i class="far fa-circle nav-icon"></i>
                   <p>All Teams</p>
                 </a>
               </li>
               <li class="nav-item">
-                <a href="../tables/All Results.html" class="nav-link">
+                <a href="../tables/All Results.php" class="nav-link">
                   <i class="far fa-circle nav-icon"></i>
                   <p>All Results</p>
                 </a>
@@ -272,51 +272,62 @@
             </div>
             <!-- /.card-header -->
             <div class="card-body">
+              <!-- Qualifier 01 and Round 01 Table -->
               <table id="example1" class="table table-bordered table-hover">
                 <thead>
                 <tr>
-                  <th>Team Name</th>
-                  <th>Event Name</th>
-                  <th>Competition Name</th>
-                  <th>Leader ID</th>
-                  <th>Leader Name</th>
-                  <th>Leader Contact no.</th>
+                  <th>Team</th>
+                  <th>Event</th>
+                  <th>Competition</th>
+                  <th>Round</th>
+                  <th>Leader-ID</th>
+                  <th>Leader-Name</th>
+                  <th>Leader-Contact</th>
                   <th>Problems Solved</th>
                   <th>Total Problems</th>
-                  <th>Year</th>
+                  <th>Event Year</th>
                 </tr>
                 </thead>
                 <tbody>
-                  <tr>
-                    <td>Trident</td>
-                    <td>Internet
-                      Explorer 4.0
-                    </td>
-                    <td>Win 95+</td>
-                    <td> 4</td>
-                    <td>X</td>
-                    <td>Internet
-                      Explorer 4.0
-                    </td>
-                    <td>Win 95+</td>
-                    <td> 4</td>
-                    <td> 2020</td>
-                  </tr>
-                  <tr>
-                    <td>Trident</td>
-                    <td>Internet
-                      Explorer 5.0
-                    </td>
-                    <td>Win 95+</td>
-                    <td>5</td>
-                    <td>C</td>
-                    <td>Internet
-                      Explorer 4.0
-                    </td>
-                    <td>Win 95+</td>
-                    <td> 4</td>
-                    <td> 2020</td>
-                  </tr>
+                  <?php
+                    $servername = "localhost";
+                    $username = "alifaisal";
+                    $password = "7789";
+                    $dbname = "cms_twm";
+
+                    // Create connection
+                    $conn = new mysqli($servername, $username, $password, $dbname);
+                    // Check connection
+                    if ($conn->connect_error) {
+                        die("Connection failed: " . $conn->connect_error);
+                    }
+                    $fetch_data =
+                    "SELECT team_name, event_name, competition_name, round_name, le.nu_id AS nu_id, full_name, contact_no, solved_prob, total_prob, year
+                    FROM event_team et, roundscore rs, participants pa, leader le, round rn, compevent ce, competition c, event e
+                    WHERE et.team_id = le.team_id AND le.nu_id = pa.nu_id AND et.team_id = rs.team_id
+                    AND rn.round_id = rs.round_id AND ce.compevent_id = rs.compevent_id
+                    AND e.event_id = ce.event_id AND c.competition_id = ce.comp_id
+                    AND
+                    contact_no IS NOT NULL AND (round_name = 'Qualifier 1' OR round_name = 'Round 1');
+                    ";
+                    $r_fetch_data = $conn->query($fetch_data) or die("error: " . $conn->error);
+                        while($row = $r_fetch_data->fetch_assoc()){?>
+                          <tr>
+                          <td><?php echo $row["team_name"]; ?></td>
+                          <td><?php echo $row["event_name"]; ?> </td>
+                          <td><?php echo $row["competition_name"]; ?></td>
+                          <td><?php echo  $row["round_name"]; ?></td>
+                          <td><?php echo $row["nu_id"];?></td>
+                          <td><?php echo $row["full_name"];?></td>
+                          <td><?php echo $row["contact_no"];?></td>
+                          <td> <?php echo $row["solved_prob"];?></td>
+                          <td><?php echo $row["total_prob"];?></td>
+                          <td><?php echo $row["year"];?></td>
+                        </tr>
+                        <?php
+                      }
+                    $conn->close();
+                    ?>
                 </tbody>
                 <!-- <tfoot>
                 <tr>
@@ -331,6 +342,7 @@
                 </tr>
                 </tfoot> -->
               </table>
+              <!-- /.Qualifier 01 and Round 01 Table -->
             </div>
             <!-- /.card-body -->
           </div>
@@ -346,51 +358,62 @@
             </div>
             <!-- /.card-header -->
             <div class="card-body">
+              <!-- Qualifier 02 Table -->
               <table id="example2" class="table table-bordered table-hover">
                 <thead>
                 <tr>
-                  <th>Team Name</th>
-                  <th>Event Name</th>
-                  <th>Competition Name</th>
-                  <th>Leader NU-Email</th>
-                  <th>Leader Name</th>
-                  <th>Leader Contact no.</th>
+                  <th>Team</th>
+                  <th>Event</th>
+                  <th>Competition</th>
+                  <th>Round</th>
+                  <th>Leader-ID</th>
+                  <th>Leader-Name</th>
+                  <th>Leader-Contact</th>
                   <th>Problems Solved</th>
                   <th>Total Problems</th>
-                  <th>Year</th>
+                  <th>Event Year</th>
                 </tr>
                 </thead>
                 <tbody>
-                  <tr>
-                    <td>Trident</td>
-                    <td>Internet
-                      Explorer 4.0
-                    </td>
-                    <td>Win 95+</td>
-                    <td> 4</td>
-                    <td>X</td>
-                    <td>Internet
-                      Explorer 4.0
-                    </td>
-                    <td>Win 95+</td>
-                    <td> 4</td>
-                    <td> 2020</td>
-                  </tr>
-                  <tr>
-                    <td>Trident</td>
-                    <td>Internet
-                      Explorer 5.0
-                    </td>
-                    <td>Win 95+</td>
-                    <td>5</td>
-                    <td>C</td>
-                    <td>Internet
-                      Explorer 4.0
-                    </td>
-                    <td>Win 95+</td>
-                    <td> 4</td>
-                    <td> 2020</td>
-                  </tr>
+                  <?php
+                    $servername = "localhost";
+                    $username = "alifaisal";
+                    $password = "7789";
+                    $dbname = "cms_twm";
+
+                    // Create connection
+                    $conn = new mysqli($servername, $username, $password, $dbname);
+                    // Check connection
+                    if ($conn->connect_error) {
+                        die("Connection failed: " . $conn->connect_error);
+                    }
+                    $fetch_data =
+                    "SELECT team_name, event_name, competition_name, round_name, le.nu_id AS nu_id, full_name, contact_no, solved_prob, total_prob, year
+                    FROM event_team et, roundscore rs, participants pa, leader le, round rn, compevent ce, competition c, event e
+                    WHERE et.team_id = le.team_id AND le.nu_id = pa.nu_id AND et.team_id = rs.team_id
+                    AND rn.round_id = rs.round_id AND ce.compevent_id = rs.compevent_id
+                    AND e.event_id = ce.event_id AND c.competition_id = ce.comp_id
+                    AND
+                    contact_no IS NOT NULL AND (round_name = 'Qualifier 2');
+                    ";
+                    $r_fetch_data = $conn->query($fetch_data) or die("error: " . $conn->error);
+                        while($row = $r_fetch_data->fetch_assoc()){?>
+                          <tr>
+                          <td><?php echo $row["team_name"]; ?></td>
+                          <td><?php echo $row["event_name"]; ?> </td>
+                          <td><?php echo $row["competition_name"]; ?></td>
+                          <td><?php echo  $row["round_name"]; ?></td>
+                          <td><?php echo $row["nu_id"];?></td>
+                          <td><?php echo $row["full_name"];?></td>
+                          <td><?php echo $row["contact_no"];?></td>
+                          <td> <?php echo $row["solved_prob"];?></td>
+                          <td><?php echo $row["total_prob"];?></td>
+                          <td><?php echo $row["year"];?></td>
+                        </tr>
+                        <?php
+                      }
+                    $conn->close();
+                    ?>
                 </tbody>
                 <!-- <tfoot>
                 <tr>
@@ -405,6 +428,7 @@
                 </tr>
                 </tfoot> -->
               </table>
+              <!-- Qualifier 02 Table -->
             </div>
             <!-- /.card-body -->
           </div>
@@ -423,32 +447,54 @@
               <table id="example3" class="table table-bordered table-hover">
                 <thead>
                 <tr>
-                  <th>Event Name</th>
-                  <th>Competition Name</th>
-                  <th>Winner Team</th>
-                  <th>Runner Up Team</th>
-                  <th>Year</th>
+                  <th>Event</th>
+                  <th>Competition</th>
+                  <th>Winner</th>
+                  <th>Runner Up</th>
+                  <th>Event Year</th>
                 </tr>
                 </thead>
                 <tbody>
-                <tr>
-                  <td>Trident</td>
-                  <td>Internet
-                    Explorer 4.0
-                  </td>
-                  <td>Win 95+</td>
-                  <td> 4</td>
-                  <td>2020</td>
-                </tr>
-                <tr>
-                  <td>Trident</td>
-                  <td>Internet
-                    Explorer 5.0
-                  </td>
-                  <td>Win 95+</td>
-                  <td>5</td>
-                  <td>2020</td>
-                </tr>
+                  <?php
+                    $servername = "localhost";
+                    $username = "alifaisal";
+                    $password = "7789";
+                    $dbname = "cms_twm";
+
+                    // Create connection
+                    $conn = new mysqli($servername, $username, $password, $dbname);
+                    // Check connection
+                    if ($conn->connect_error) {
+                        die("Connection failed: " . $conn->connect_error);
+                    }
+                    $fetch_data =
+                    "SELECT
+                      (
+                          SELECT et1.team_name FROM event_team et1, compevent WHERE et1.team_id = compevent.winner_team_id
+                      ) AS winner,
+                      (
+                          SELECT et2.team_name FROM event_team et2, compevent WHERE et2.team_id = compevent.runner_up_team_id
+                      ) AS  runner_up,
+                      event_name, competition_name, year
+                      FROM event_team et, compevent ce, competition c, event e
+                      WHERE e.event_id = ce.event_id AND c.competition_id = ce.comp_id
+                      AND ce.winner_team_id = et.team_id
+                      AND ce.compevent_id IN (SELECT compevent_id FROM compevent WHERE compevent.winner_team_id IS NOT NULL
+                      AND compevent.runner_up_team_id IS NOT NULL)
+                    ";
+                    $r_fetch_data = $conn->query($fetch_data) or die("error: " . $conn->error);
+                        while($row = $r_fetch_data->fetch_assoc()){?>
+                          <tr>
+                          <td><?php echo $row["event_name"]; ?> </td>
+                          <td><?php echo $row["competition_name"]; ?></td>
+                          <td><?php echo $row["winner"]; ?> </td>
+                          <td><?php echo $row["runner_up"]; ?> </td>
+                          <td><?php echo $row["year"];?></td>
+                        </tr>
+                        <?php
+                      }
+                    $conn->close();
+                    ?>
                 </tbody>
                 <!-- <tfoot>
                 <tr>
