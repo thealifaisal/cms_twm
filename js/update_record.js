@@ -9,7 +9,7 @@ function updateRecord(){
   var fullname = document.getElementById("fullname").value;
   var gender = document.getElementById("gender").value;
   var email = document.getElementById("email").value;
-  var proj_name = document.getElementById("proj_name").value;
+  // var proj_name = document.getElementById("proj_name").value;
   var year_joined = document.getElementById("year_joined").value;
   var comm_score = document.getElementById("comm_score").value;
   var tech_score = document.getElementById("tech_score").value;
@@ -53,7 +53,7 @@ function updateRecord(){
 
   var dataString1 = "username="+username+"+&password="+password+"+&role="+role;
   var dataString2 = "+&team="+team+"+&nu_id="+nu_id+"+&fullname="+fullname;
-  var dataString3 = "+&gender="+gender+"+&email="+email+"+&proj_name="+proj_name;
+  var dataString3 = "+&gender="+gender+"+&email="+email/*+"+&proj_name="+proj_name*/;
   var dataString4 = "+&year_joined="+year_joined+"+&comm_score="+comm_score+"+&tech_score="+tech_score;
   var dataString5 = "+&mng_score="+mng_score+"+&team_score="+team_score;
 

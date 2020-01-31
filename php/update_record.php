@@ -12,7 +12,7 @@ $nu_id = trim($_GET["nu_id"]);
 $name = trim($_GET["fullname"]);
 $gender = trim($_GET["gender"]);
 $mail = trim($_GET["email"]);
-$proj = trim($_GET["proj_name"]);
+// $proj = trim($_GET["proj_name"]);
 $year = intVal(trim($_GET["year_joined"]));
 $comm = intVal(trim($_GET["comm_score"]));
 $tech = intVal(trim($_GET["tech_score"]));
@@ -61,27 +61,27 @@ if($comm >= 0 && $comm <=10){
 // update member
 $r_updateM = $conn->query($updateMember) or die("error: " . $conn->error);
 
-if(empty($proj)){
-  die("1");
-}
-
-// if project is non-empty then insert into project table and mem_proj table
-
-// check project exists
-$get_proj = "SELECT proj_id FROM project WHERE proj_name = '$proj'";
-$r_get_proj = $conn->query($get_proj) or die("error: " . $conn->error);
-if($r_get_proj->num_rows == 1){
-  $proj_id = $r_get_proj->fetch_assoc();
-  $proj_id = $proj_id["proj_id"];
-}
-else{
-  $insertProject = "INSERT INTO project (proj_name, date_start) VALUES ('$proj', SYSDATE)";
-  $r_insertP = $conn->query($insertProject) or die("error: " . $conn->error);
-  $proj_id = $conn->insert_id;
-}
-
-$insertMP = "INSERT INTO mem_proj (proj_id, nu_id) VALUES ($proj_id, '$nu_id')";
-$r_insertMP = $conn->query($insertMP) or die("error: " . $conn->error);
+// if(empty($proj)){
+//   die("1");
+// }
+//
+// // if project is non-empty then insert into project table and mem_proj table
+//
+// // check project exists
+// $get_proj = "SELECT proj_id FROM project WHERE proj_name = '$proj'";
+// $r_get_proj = $conn->query($get_proj) or die("error: " . $conn->error);
+// if($r_get_proj->num_rows == 1){
+//   $proj_id = $r_get_proj->fetch_assoc();
+//   $proj_id = $proj_id["proj_id"];
+// }
+// else{
+//   $insertProject = "INSERT INTO project (proj_name, date_start) VALUES ('$proj', SYSDATE)";
+//   $r_insertP = $conn->query($insertProject) or die("error: " . $conn->error);
+//   $proj_id = $conn->insert_id;
+// }
+//
+// $insertMP = "INSERT INTO mem_proj (proj_id, nu_id) VALUES ($proj_id, '$nu_id')";
+// $r_insertMP = $conn->query($insertMP) or die("error: " . $conn->error);
 
 echo "1";
 
