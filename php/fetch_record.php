@@ -5,6 +5,7 @@ include "connect_cms.php";
 $conn = openConn();
 
 $nu_id = trim($_GET["nu_id"]);
+// $nu_id = "K173791";
 
 // check nu_id
 $get_member = "SELECT * FROM member WHERE nu_id = '$nu_id'";
