@@ -4,8 +4,8 @@ include "connect_cms.php";
 
 $conn = openConn();
 
-$nu_id = trim($_GET["nu_id"]);
-// $nu_id = "K173791";
+// $nu_id = trim($_GET["nu_id"]);
+$nu_id = "K173791";
 
 // check nu_id
 $get_member = "SELECT * FROM member WHERE nu_id = '$nu_id'";
@@ -22,7 +22,7 @@ $team_id = $member["team_id"];
 $get_rolename = "SELECT role_name FROM role WHERE role_id = $role_id";
 $r_get_rolename = $conn->query($get_rolename) or die("error: " . $conn->error);
 $role_name = $r_get_rolename->fetch_assoc();
-$role_name = $role_name["role_name"];
+$member["role_name"] = $role_name["role_name"];
 
 // fetch team_name
 if(empty($team_id)){
