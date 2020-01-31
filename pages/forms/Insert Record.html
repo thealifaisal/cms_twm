@@ -283,8 +283,22 @@
                     <div class="row">
                       <div class="col-md-6">
                         <div class="form-group">
+                          <label for="exampleInputEmail1">Username</label>
+                          <input type="text" class="form-control" id="username" placeholder="Enter Username">
+                        </div>
+                      </div>
+                      <div class="col-md-6">
+                        <div class="form-group">
+                          <label for="exampleInputEmail1">Password</label>
+                          <input type="password" class="form-control" id="password" placeholder="Enter Password">
+                        </div>
+                      </div>
+                    </div>
+                    <div class="row">
+                      <div class="col-md-6">
+                        <div class="form-group">
                           <label>Role</label>
-                          <select class="form-control">
+                          <select class="form-control" id="role">
                             <option>Select Role</option>
                             <option>Faculty Head</option>
                             <option>Co-Faculty Head</option>
@@ -323,7 +337,7 @@
                       <div class="col-md-6">
                         <div class="form-group">
                           <label for="exampleInputEmail1">NU-ID</label>
-                          <input type="text" class="form-control" id="exampleInputEmail1" placeholder="Enter NU-ID (K16-1234)">
+                          <input type="text" class="form-control" id="nu_id" placeholder="Enter NU-ID (K171234)">
                         </div>
                       </div>
                     </div>
@@ -331,16 +345,18 @@
                       <div class="col-md-6">
                         <div class="form-group">
                           <label for="exampleInputEmail1">Full Name</label>
-                          <input type="text" class="form-control" id="exampleInputEmail1" placeholder="Enter Full Name">
+                          <input type="text" class="form-control" id="fullname" placeholder="Enter Full Name">
                         </div>
                       </div>
                       <div class="col-md-6">
                         <div class="form-group">
                           <label>Gender</label>
-                          <select class="form-control">
+                          <select class="form-control" id="gender">
                             <option>Select Gender</option>
                             <option>Male</option>
                             <option>Female</option>
+                            <option>Other</option>
+                            <option>Prefer Not To Say</option>
                           </select>
                         </div>
                       </div>
@@ -348,22 +364,14 @@
                     <div class="row">
                       <div class="col-md-6">
                         <div class="form-group">
-                          <label for="exampleInputEmail1">NU-Email</label>
-                          <input type="text" class="form-control" id="exampleInputEmail1" placeholder="Enter NU-Email (K161234@nu.edu.pk)">
+                          <label for="exampleInputEmail1">Project Name</label>
+                          <input type="text" class="form-control" id="proj_name" placeholder="Enter Project Name">
                         </div>
                       </div>
                       <div class="col-md-6">
                         <div class="form-group">
                           <label for="exampleInputEmail1">Year</label>
-                          <input type="number" class="form-control" id="exampleInputEmail1" placeholder="Enter Year Joined">
-                        </div>
-                      </div>
-                    </div>
-                    <div class="row">
-                      <div class="col-md-12">
-                        <div class="form-group">
-                          <label for="exampleInputEmail1">Project Name</label>
-                          <input type="text" class="form-control" id="exampleInputEmail1" placeholder="Enter Project Name">
+                          <input type="number" maxlength="4" class="form-control" id="year_joined" placeholder="Enter Year Joined">
                         </div>
                       </div>
                     </div>
@@ -371,39 +379,25 @@
                       <div class="col-md-3">
                         <div class="form-group">
                           <label for="exampleInputEmail1">Communication Skills</label>
-                          <input type="number" class="form-control" id="exampleInputEmail1" placeholder="Enter Score Out of 10">
+                          <input type="number" value="0" max="10" min="0" class="form-control" id="comm_score">
                         </div>
                       </div>
                       <div class="col-md-3">
                         <div class="form-group">
                           <label for="exampleInputEmail1">Technical Skills</label>
-                          <input type="number" class="form-control" id="exampleInputEmail1" placeholder="Enter Score Out of 10">
+                          <input type="number" value="0" max="10" min="0" class="form-control" id="tech_score">
                         </div>
                       </div>
                       <div class="col-md-3">
                         <div class="form-group">
                           <label for="exampleInputEmail1">Management Skills</label>
-                          <input type="number" class="form-control" id="exampleInputEmail1" placeholder="Enter Score Out of 10">
+                          <input type="number" value="0" max="10" min="0" class="form-control" id="mng_score">
                         </div>
                       </div>
                       <div class="col-md-3">
                         <div class="form-group">
                           <label for="exampleInputEmail1">Team Player</label>
-                          <input type="number" class="form-control" id="exampleInputEmail1" placeholder="Enter Score Out of 10">
-                        </div>
-                      </div>
-                    </div>
-                    <div class="row">
-                      <div class="col-md-6">
-                        <div class="form-group">
-                          <label for="exampleInputEmail1">Username</label>
-                          <input type="text" class="form-control" id="exampleInputEmail1" placeholder="Same as NU Email">
-                        </div>
-                      </div>
-                      <div class="col-md-6">
-                        <div class="form-group">
-                          <label for="exampleInputEmail1">Password</label>
-                          <input type="password" class="form-control" id="exampleInputEmail1" placeholder="Enter Password">
+                          <input type="number" value="0" max="10" min="0" class="form-control" id="team_score">
                         </div>
                       </div>
                     </div>
@@ -411,7 +405,7 @@
                   <!-- /.card-body -->
                   <div class="card-footer text-right">
                     <button type="submit" class="btn btn-success">Reset Form</button>
-                    <button type="submit" class="btn btn-primary">Insert Record</button>
+                    <button type="button" onclick="" class="btn btn-primary">Insert Record</button>
                   </div>
                 </form>
               </div>
