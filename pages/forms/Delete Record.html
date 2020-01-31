@@ -291,7 +291,7 @@
                   </div>
                   <!-- /.card-body -->
                   <div class="card-footer text-right">
-                    <button type="button" class="btn btn-primary">Fetch Record</button>
+                    <button type="button" onclick="fetchRecord()" class="btn btn-primary">Fetch Record</button>
                   </div>
                 </form>
               </div>
@@ -453,8 +453,7 @@
                   </div>
                   <!-- /.card-body -->
                   <div class="card-footer text-right">
-                    <button type="submit" class="btn btn-success">Reset Form</button>
-                    <button type="button" onclick="" class="btn btn-primary">Insert Record</button>
+                    <button type="button" onclick="" class="btn btn-primary">Delete Record</button>
                   </div>
                 </form>
               </div>
@@ -492,6 +491,9 @@
   <script src="../../dist/js/adminlte.min.js"></script>
   <!-- AdminLTE for demo purposes -->
   <script src="../../dist/js/demo.js"></script>
+
+  <script src="../../js/fetch_record.js"></script>
+
   <script type="text/javascript">
     $(document).ready(function () {
       bsCustomFileInput.init();
