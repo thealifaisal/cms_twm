@@ -4,8 +4,8 @@ include "connect_cms.php";
 
 $conn = openConn();
 
-// $nu_id = trim($_GET["nu_id"]);
-$nu_id = "K173791";
+$nu_id = trim($_GET["nu_id"]);
+// $nu_id = "K173791";
 
 // check nu_id
 $get_member = "SELECT * FROM member WHERE nu_id = '$nu_id'";
@@ -54,5 +54,11 @@ else{
 }
 
 echo json_encode($member);
+
+// {"nu_id":"K173791","full_name":"Ali Faisal","gender":"Male","nu_email":"K173791@nu.edu.pk",
+//   "year_join":"2019","username":"K173791","password":"7789","team_id":"107",
+//   "role_id":"115","role_name":"Co-Head Back End Development","team_name":"Back End Team",
+//   "comm_skill":"7","tech_skill":"10","mng_skill":"9","team_player":"8"
+// }
 
 ?>
