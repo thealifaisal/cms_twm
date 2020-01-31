@@ -284,13 +284,13 @@
                       <div class="col-md-6">
                         <div class="form-group">
                           <label for="exampleInputEmail1">Username</label>
-                          <input type="text" class="form-control" id="username" placeholder="Enter Username">
+                          <input type="text" class="form-control" id="username" placeholder="Enter NU-ID (K171234)" autocomplete="username">
                         </div>
                       </div>
                       <div class="col-md-6">
                         <div class="form-group">
                           <label for="exampleInputEmail1">Password</label>
-                          <input type="password" class="form-control" id="password" placeholder="Enter Password">
+                          <input type="password" class="form-control" id="password" placeholder="Enter Password" autocomplete="new-password">
                         </div>
                       </div>
                     </div>
@@ -299,7 +299,7 @@
                         <div class="form-group">
                           <label>Role</label>
                           <select class="form-control" id="role">
-                            <option>Select Role</option>
+                            <option default>Select Role</option>
                             <option>Faculty Head</option>
                             <option>Co-Faculty Head</option>
                             <option>President</option>
@@ -338,7 +338,7 @@
                         <div class="form-group">
                           <label>Team</label>
                           <select class="form-control" id="team">
-                            <option>Select Team</option>
+                            <option default>Select Team</option>
                             <option>Web Development</option>
                             <option>Mobile App Development</option>
                             <option>Speed Programming</option>
@@ -357,7 +357,7 @@
                       <div class="col-md-4">
                         <div class="form-group">
                           <label for="exampleInputEmail1">NU-ID</label>
-                          <input type="text" class="form-control" id="nu_id" placeholder="Enter NU-ID (K171234)">
+                          <input type="text" class="form-control" id="nu_id" placeholder="Enter NU-ID (K171234)" autocomplete="username">
                         </div>
                       </div>
                     </div>
@@ -365,14 +365,14 @@
                       <div class="col-md-4">
                         <div class="form-group">
                           <label for="exampleInputEmail1">Full Name</label>
-                          <input type="text" class="form-control" id="fullname" placeholder="Enter Full Name">
+                          <input type="text" class="form-control" id="fullname" placeholder="Enter Full Name" autocomplete="name">
                         </div>
                       </div>
                       <div class="col-md-4">
                         <div class="form-group">
                           <label>Gender</label>
                           <select class="form-control" id="gender">
-                            <option>Select Gender</option>
+                            <option default>Select Gender</option>
                             <option>Male</option>
                             <option>Female</option>
                             <option>Other</option>
@@ -383,7 +383,7 @@
                       <div class="col-md-4">
                         <div class="form-group">
                           <label for="exampleInputEmail1">Email</label>
-                          <input type="text" class="form-control" id="email" placeholder="Enter Email (abc123@nu.edu.pk)">
+                          <input type="text" class="form-control" id="email" placeholder="Enter Email (abc123@nu.edu.pk)" autocomplete="email">
                         </div>
                       </div>
                     </div>
@@ -397,7 +397,7 @@
                       <div class="col-md-6">
                         <div class="form-group">
                           <label for="exampleInputEmail1">Year</label>
-                          <input type="number" maxlength="4" class="form-control" id="year_joined" placeholder="Enter Year Joined">
+                          <input type="number" maxlength="4" class="form-control" id="year_joined" placeholder="Enter Year Joined" autocomplete="off">
                         </div>
                       </div>
                     </div>
@@ -405,25 +405,25 @@
                       <div class="col-md-3">
                         <div class="form-group">
                           <label for="exampleInputEmail1">Communication Skills</label>
-                          <input type="number" value="0" max="10" min="0" class="form-control" id="comm_score">
+                          <input type="number" value="0" max="10" min="0" class="form-control" id="comm_score" autocomplete="off">
                         </div>
                       </div>
                       <div class="col-md-3">
                         <div class="form-group">
                           <label for="exampleInputEmail1">Technical Skills</label>
-                          <input type="number" value="0" max="10" min="0" class="form-control" id="tech_score">
+                          <input type="number" value="0" max="10" min="0" class="form-control" id="tech_score" autocomplete="off">
                         </div>
                       </div>
                       <div class="col-md-3">
                         <div class="form-group">
                           <label for="exampleInputEmail1">Management Skills</label>
-                          <input type="number" value="0" max="10" min="0" class="form-control" id="mng_score">
+                          <input type="number" value="0" max="10" min="0" class="form-control" id="mng_score" autocomplete="off">
                         </div>
                       </div>
                       <div class="col-md-3">
                         <div class="form-group">
                           <label for="exampleInputEmail1">Team Player</label>
-                          <input type="number" value="0" max="10" min="0" class="form-control" id="team_score">
+                          <input type="number" value="0" max="10" min="0" class="form-control" id="team_score" autocomplete="off">
                         </div>
                       </div>
                     </div>
@@ -431,7 +431,7 @@
                   <!-- /.card-body -->
                   <div class="card-footer text-right">
                     <button type="submit" class="btn btn-success">Reset Form</button>
-                    <button type="button" onclick="" class="btn btn-primary">Insert Record</button>
+                    <button type="button" onclick="insertRecord()" id="insert_record" class="btn btn-primary">Insert Record</button>
                   </div>
                 </form>
               </div>
@@ -469,7 +469,13 @@
   <script src="../../dist/js/adminlte.min.js"></script>
   <!-- AdminLTE for demo purposes -->
   <script src="../../dist/js/demo.js"></script>
+  <!-- Insert Record -->
+  <script src="../../js/insert_record.js"></script>
+
   <script type="text/javascript">
+
+    // document.getElementById("insert_record").disable = true;
+
     $(document).ready(function () {
       bsCustomFileInput.init();
     });
