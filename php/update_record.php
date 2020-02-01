@@ -57,7 +57,7 @@ $r_updateM = $conn->query($updateMember) or die("error: " . $conn->error);
 // check if any skill is -1 that means member is faculty else not
 if($comm >= 0 && $comm <=10){
   // member is not faculty, update skill table
-  $updateSkill = "UPDATE skill comm_skill=$comm, tech_skill=$tech, mng_skill=$mng, team_player=$team_score WHERE nu_id='$nu_id'";
+  $updateSkill = "UPDATE skill SET comm_skill=$comm, tech_skill=$tech, mng_skill=$mng, team_player=$team_score WHERE nu_id='$nu_id'";
   $r_updateS = $conn->query($updateSkill) or die("error: " . $conn->error);
 }
 
