@@ -70,6 +70,7 @@ function insertRecord(){
       else{
         if(this.responseText == "1"){
           alert("Member Succesfully Registered");
+          location.reload();
           return 0;
         }
         else{
