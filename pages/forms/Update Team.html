@@ -438,7 +438,7 @@
                   </div>
                   <!-- /.card-body -->
                   <div class="card-footer text-right">
-                    <button type="button" onclick="updateTeam()" class="btn btn-primary">Update</button>
+                    <button type="button" id="upd-team-btn" onclick="updateTeam()" class="btn btn-primary">Update</button>
                   </div>
                 </form>
               </div>
@@ -480,6 +480,8 @@
     $(document).ready(function () {
       bsCustomFileInput.init();
     });
+
+    document.getElementById("upd-team-btn").disabled = true;
   </script>
   <script src="../../js/fetch_event_team.js"></script>
   <script src="../../js/update_team.js"></script>

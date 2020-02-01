@@ -17,6 +17,7 @@ function delTeam(){
       }
       else{
         alert("Success: Deleted Team No: "+team_id);
+        document.getElementById("del-team-btn").disabled = true;
       }
     }
   };

@@ -436,7 +436,7 @@
                   </div>
                   <!-- /.card-body -->
                   <div class="card-footer text-right">
-                    <button type="button" onclick="delTeam()" class="btn btn-danger">Delete</button>
+                    <button type="button" id="del-team-btn" onclick="delTeam()" class="btn btn-danger">Delete</button>
                   </div>
                 </form>
               </div>
@@ -478,6 +478,8 @@
     $(document).ready(function () {
       bsCustomFileInput.init();
     });
+
+    document.getElementById("del-team-btn").disabled = true;
   </script>
   <script src="../../js/fetch_event_team.js"></script>
   <script src="../../js/delete_team.js"></script>

@@ -84,6 +84,20 @@ function fetchTeam(){
           document.getElementById("p"+(i+1)+"_id").value = p_id[i];
           document.getElementById("p"+(i+1)+"_name").value = p_name[i];
         }
+
+        try{
+          document.getElementById("upd-team-btn").disabled = false;
+        }
+        catch(err){
+
+        }
+
+        try{
+
+        }
+        catch(err){
+          document.getElementById("del-team-btn").disabled = false;
+        }
       }
     }
   };
