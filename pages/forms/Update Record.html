@@ -284,14 +284,14 @@
                       <div class="col-md-12">
                         <div class="form-group">
                           <label for="exampleInputEmail1">NU-ID</label>
-                          <input type="text" class="form-control" id="nu_id_form0" placeholder="Enter NU-ID (K171234)">
+                          <input type="text" class="form-control" id="nu_id_form0" placeholder="Enter NU-ID (K171234)" autocomplete="username">
                         </div>
                       </div>
                     </div>
                   </div>
                   <!-- /.card-body -->
                   <div class="card-footer text-right">
-                    <button type="button" class="btn btn-primary">Fetch Record</button>
+                    <button type="button" onclick="fetchRecord()" class="btn btn-primary">Fetch Record</button>
                   </div>
                 </form>
               </div>
@@ -318,7 +318,7 @@
                       </div>
                     </div>
                     <div class="row">
-                      <div class="col-md-4">
+                      <div class="col-md-6">
                         <div class="form-group">
                           <label>Role</label>
                           <select class="form-control" id="role">
@@ -357,7 +357,7 @@
                           </select>
                         </div>
                       </div>
-                      <div class="col-md-4">
+                      <div class="col-md-6">
                         <div class="form-group">
                           <label>Team</label>
                           <select class="form-control" id="team">
@@ -377,14 +377,14 @@
                           </select>
                         </div>
                       </div>
+                    </div>
+                    <div class="row">
                       <div class="col-md-4">
                         <div class="form-group">
                           <label for="exampleInputEmail1">NU-ID</label>
                           <input type="text" class="form-control" id="nu_id" placeholder="Enter NU-ID (K171234)" readonly>
                         </div>
                       </div>
-                    </div>
-                    <div class="row">
                       <div class="col-md-4">
                         <div class="form-group">
                           <label for="exampleInputEmail1">Full Name</label>
@@ -403,12 +403,6 @@
                           </select>
                         </div>
                       </div>
-                      <div class="col-md-4">
-                        <div class="form-group">
-                          <label for="exampleInputEmail1">Email</label>
-                          <input type="text" class="form-control" id="email" placeholder="Enter Email (abc123@nu.edu.pk)">
-                        </div>
-                      </div>
                     </div>
                     <div class="row">
                       <!-- <div class="col-md-6">
@@ -417,6 +411,12 @@
                           <input type="text" class="form-control" id="proj_name" placeholder="Enter Project Name">
                         </div>
                       </div> -->
+                      <div class="col-md-6">
+                        <div class="form-group">
+                          <label for="exampleInputEmail1">Email</label>
+                          <input type="text" class="form-control" id="email" placeholder="Enter Email (abc123@nu.edu.pk)">
+                        </div>
+                      </div>
                       <div class="col-md-6">
                         <div class="form-group">
                           <label for="exampleInputEmail1">Year</label>
@@ -454,7 +454,7 @@
                   <!-- /.card-body -->
                   <div class="card-footer text-right">
                     <button type="submit" class="btn btn-success">Reset Form</button>
-                    <button type="button" onclick="" class="btn btn-primary">Insert Record</button>
+                    <button type="button" id="upd_btn" onclick="updateRecord()" class="btn btn-primary">Update Record</button>
                   </div>
                 </form>
               </div>
@@ -496,7 +496,12 @@
     $(document).ready(function () {
       bsCustomFileInput.init();
     });
+    document.getElementById("upd_btn").disabled = true;
   </script>
+
+  <script src="../../js/fetch_record.js"></script>
+  <script src="../../js/update_record.js"></script>
+
 </body>
 
 </html>
