@@ -51,6 +51,9 @@ else{
   VALUES ('$nu_id', '$name', '$gender', '$mail', $year, '$username', '$password', $team_id, $role_id)";
 }
 
+// insert member
+$r_insertM = $conn->query($insertMember) or die("error: " . $conn->error);
+
 // check if any skill is -1 that means member is faculty else not
 if($comm >= 0 && $comm <=10){
   // member is not faculty, insert into skill table
@@ -59,9 +62,6 @@ if($comm >= 0 && $comm <=10){
 
   $r_insertS = $conn->query($insertSkill) or die("error: " . $conn->error);
 }
-
-// insert member
-$r_insertM = $conn->query($insertMember) or die("error: " . $conn->error);
 
 // if(empty($proj)){
 //   die("1");

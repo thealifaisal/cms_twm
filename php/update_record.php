@@ -51,6 +51,9 @@ else{
   year_join=$year, password='$password', role_id=$role_id, team_id=$team_id WHERE nu_id='$nu_id'";
 }
 
+// update member
+$r_updateM = $conn->query($updateMember) or die("error: " . $conn->error);
+
 // check if any skill is -1 that means member is faculty else not
 if($comm >= 0 && $comm <=10){
   // member is not faculty, update skill table
@@ -58,8 +61,6 @@ if($comm >= 0 && $comm <=10){
   $r_updateS = $conn->query($updateSkill) or die("error: " . $conn->error);
 }
 
-// update member
-$r_updateM = $conn->query($updateMember) or die("error: " . $conn->error);
 
 // if(empty($proj)){
 //   die("1");
