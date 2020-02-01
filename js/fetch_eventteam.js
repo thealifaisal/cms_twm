@@ -93,10 +93,10 @@ function fetchTeam(){
         }
 
         try{
-
+          document.getElementById("del-team-btn").disabled = false;
         }
         catch(err){
-          document.getElementById("del-team-btn").disabled = false;
+
         }
       }
     }
