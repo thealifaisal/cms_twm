@@ -284,8 +284,8 @@
                       <div class="col-md-12">
                         <div class="form-group">
                           <label>Team Name</label>
-                          <select class="form-control">
-                            <option>Select Team</option>
+                          <select id="team_name" onchange="getTeamDet()" class="form-control">
+                            <option default>Select Team</option>
                             <option>Web Development</option>
                             <option>Mobile App Development</option>
                             <option>Speed Programming</option>
@@ -304,13 +304,12 @@
                       <div class="col-md-12">
                         <div class="form-group">
                           <label>Write Details</label>
-                          <textarea id="compose-textarea" class="form-control" style="height: 300px">But I must explain to you how all this mistaken idea of denouncing pleasure and praising pain was born and I will give you a complete account of the system, and expound the actual teachings
-                          </textarea>
+                          <textarea id="team_details" class="form-control" style="height: 300px"></textarea>
                         </div>
                       <!-- /.card-body -->
                       <div class="card-footer text-right">
                         <button type="submit" class="btn btn-success">Reset Form</button>
-                        <button type="submit" class="btn btn-primary">Update Dashboard</button>
+                        <button type="button" onclick="updateTeamDet()" class="btn btn-primary">Update Dashboard</button>
                       </div>
                 </form>
               </div>
@@ -359,6 +358,8 @@
       $('#compose-textarea').summernote()
     })
   </script>
+
+  <script src="../../js/twm_team_details.js"></script>
 </body>
 
 </html>
