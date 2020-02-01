@@ -42,6 +42,21 @@ function fetchRecord(){
         document.getElementById("tech_score").value = member["tech_skill"];
         document.getElementById("mng_score").value = member["mng_skill"];
         document.getElementById("team_score").value = member["team_player"];
+
+        // since record is fetched enable the Delete Button del_btn/Update Button upd_btn
+        try{
+          document.getElementById("del_btn").disabled = false;
+        }
+        catch(err){
+          console.log("not delete page");
+        }
+
+        try{
+          document.getElementById("upd_btn").disabled = false;
+        }
+        catch(err){
+          console.log("not update page");
+        }
       }
     }
   };

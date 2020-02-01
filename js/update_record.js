@@ -70,6 +70,7 @@ function updateRecord(){
       else{
         if(this.responseText == "1"){
           alert("Member Succesfully Updated");
+          document.getElementById("upd_btn").disabled = true;
           return 0;
         }
         else{
