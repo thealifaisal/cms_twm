@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Jan 25, 2020 at 08:42 PM
+-- Generation Time: Feb 01, 2020 at 09:51 PM
 -- Server version: 10.4.8-MariaDB
 -- PHP Version: 7.3.10
 
@@ -65,7 +65,7 @@ CREATE TABLE `compevent` (
 --
 
 INSERT INTO `compevent` (`compevent_id`, `comp_id`, `event_id`, `year`, `winner_team_id`, `runner_up_team_id`, `head_nu_id`) VALUES
-(3, 103, 101, 2020, 0, 0, NULL);
+(3, 103, 101, 2020, 3, 4, NULL);
 
 -- --------------------------------------------------------
 
@@ -147,9 +147,19 @@ CREATE TABLE `member` (
 --
 
 INSERT INTO `member` (`nu_id`, `full_name`, `gender`, `nu_email`, `year_join`, `username`, `password`, `team_id`, `role_id`) VALUES
+('K163741', 'Mustufa Qadri', 'Male', 'K163741@nu.edu.pk', 2020, 'K163741', '4826', NULL, 103),
+('K163842', 'Saad Ahmed', 'Male', 'K163842@nu.edu.pk', 2020, 'K163842', '1556', NULL, 104),
+('K173722', 'Murad Popattia', 'Male', 'K173722@nu.edu.pk', 2020, 'K173722', '7914', 102, 108),
+('K173737', 'Safi Ullah', 'Male', 'K173737@nu.edu.pk', 2019, 'K173737', '7789', 106, 123),
 ('K173791', 'Ali Faisal', 'Male', 'K173791@nu.edu.pk', 2019, 'K173791', '7789', 107, 115),
-('K173810', 'Aiman Siddiqui', 'Female', 'K173810@u.edu.pk', 2019, 'K173810', '7789', 106, 114),
-('K173851', 'Shayan', 'Male', 'K173851@u.edu.pk', 2020, 'K173851', '7789', 107, 124);
+('K173810', 'Aiman Siddiqui', 'Female', 'K173810@nu.edu.pk', 2019, 'K173810', '7789', 106, 114),
+('K173814', 'Muneeb Khan', 'Male', 'K173814@nu.edu.pk', 2020, 'K173814', '7789', 102, 124),
+('K173851', 'Shayan', 'Male', 'K173851@nu.edu.pk', 2020, 'K173851', '7789', 107, 124),
+('K173879', 'Ayesha Waheed', 'Female', 'K173879@nu.edu.pk', 2020, 'K173879', '1497', NULL, 105),
+('K173881', 'Saba Pervez', 'Female', 'K173881@nu.edu.pk', 2020, 'K173881', '4792', 108, 110),
+('K173918', 'Avinash', 'Male', 'K173918@nu.edu.pk', 2020, 'K173918', '7789', 111, 126),
+('KCFH1', 'Shoaib', 'Male', 'shoaib@nu.edu.pk', 2020, 'KCFH1', '6719', NULL, 102),
+('KFH1', 'Farooq Hassan Kumbhar', 'Male', 'farooq.hassan@nu.edu.pk', 2020, 'KFH1', '1597', NULL, 101);
 
 -- --------------------------------------------------------
 
@@ -179,8 +189,10 @@ CREATE TABLE `participants` (
 --
 
 INSERT INTO `participants` (`nu_id`, `nu_mail`, `full_name`) VALUES
+('K173737', 'K173737@nu.edu.pk', 'Safi Ullah'),
 ('K173791', 'K173791@nu.edu.pk', 'Ali Faisal'),
 ('K173851', 'K173851@nu.edu.pk', 'Shayan'),
+('K173879', 'K173879@nu.edu.pk', 'Ayesha'),
 ('K173881', 'K173881@nu.edu.pk', 'Saba');
 
 -- --------------------------------------------------------
@@ -299,6 +311,25 @@ CREATE TABLE `skill` (
   `team_player` float NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
+--
+-- Dumping data for table `skill`
+--
+
+INSERT INTO `skill` (`nu_id`, `comm_skill`, `tech_skill`, `mng_skill`, `team_player`) VALUES
+('K163741', 8, 9, 8, 8),
+('K163842', 8, 7, 7, 9),
+('K173722', 8, 9, 7, 8),
+('K173737', 7, 8, 6, 8),
+('K173791', 7, 10, 9, 8),
+('K173810', 8, 9, 9, 8),
+('K173814', 6, 7, 8, 8),
+('K173851', 6, 5, 7, 6),
+('K173879', 8, 9, 7, 8),
+('K173881', 8, 7, 7, 9),
+('K173918', 7, 8, 6, 8),
+('KCFH1', 8, 9, 9, 8),
+('KFH1', 7, 10, 9, 8);
+
 -- --------------------------------------------------------
 
 --
@@ -319,7 +350,7 @@ INSERT INTO `twm_team` (`team_id`, `team_name`, `team_details`) VALUES
 (101, 'Web Development', 'Detail: Web Development'),
 (102, 'Mobile App Development', 'Detail: Mobile App Development'),
 (103, 'Speed Programming', 'Detail: Speed Programming'),
-(104, 'UI/UX Design', 'Detail: UI/UX Design'),
+(104, 'UI/UX Design', 'In charge of designing each screen or page with which a user interacts and ensuring that the UI visually communicates the path that a UX designer has laid out.'),
 (105, 'Database Design', 'Detail: Database Design'),
 (106, 'Front End Team', 'Detail: Front End Team'),
 (107, 'Back End Team', 'Detail: Back End Team'),
@@ -380,7 +411,7 @@ ALTER TABLE `member`
 --
 ALTER TABLE `mem_proj`
   ADD PRIMARY KEY (`nu_id`,`proj_id`),
-  ADD KEY `proj_id` (`proj_id`);
+  ADD KEY `proj_id_fk` (`proj_id`);
 
 --
 -- Indexes for table `participants`
@@ -440,7 +471,13 @@ ALTER TABLE `compevent`
 -- AUTO_INCREMENT for table `event_team`
 --
 ALTER TABLE `event_team`
-  MODIFY `team_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
+  MODIFY `team_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
+
+--
+-- AUTO_INCREMENT for table `project`
+--
+ALTER TABLE `project`
+  MODIFY `proj_id` int(11) NOT NULL AUTO_INCREMENT;
 
 --
 -- Constraints for dumped tables
@@ -474,8 +511,8 @@ ALTER TABLE `member`
 --
 ALTER TABLE `mem_proj`
   ADD CONSTRAINT `mem_proj_ibfk_1` FOREIGN KEY (`nu_id`) REFERENCES `member` (`nu_id`) ON DELETE CASCADE ON UPDATE CASCADE,
-  ADD CONSTRAINT `mem_proj_ibfk_2` FOREIGN KEY (`proj_id`) REFERENCES `project` (`proj_id`) ON DELETE CASCADE ON UPDATE CASCADE,
-  ADD CONSTRAINT `mem_proj_ibfk_3` FOREIGN KEY (`nu_id`) REFERENCES `member` (`nu_id`) ON DELETE CASCADE ON UPDATE CASCADE;
+  ADD CONSTRAINT `mem_proj_ibfk_3` FOREIGN KEY (`nu_id`) REFERENCES `member` (`nu_id`) ON DELETE CASCADE ON UPDATE CASCADE,
+  ADD CONSTRAINT `proj_id_fk` FOREIGN KEY (`proj_id`) REFERENCES `project` (`proj_id`);
 
 --
 -- Constraints for table `roundscore`
