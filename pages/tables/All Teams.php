@@ -275,10 +275,11 @@
               <table id="example1" class="table table-bordered table-hover">
                 <thead>
                 <tr>
+                  <th>ID</th>
                   <th>Team</th>
                   <th>Event</th>
-                  <th>Event Year</th>
                   <th>Competition</th>
+                  <th>Event Year</th>
                   <th>Leader NU-ID</th>
                   <th>Leader Name</th>
                   <th>Leader Contact</th>
@@ -346,6 +347,7 @@
                       $c_name = $c_name["competition_name"];
                       ?>
                       <tr>
+                        <td><?php echo $team_id; ?></td>
                         <td><?php echo $team_name; ?></td>
                         <td><?php echo $e_name; ?> </td>
                         <td><?php echo $c_name; ?></td>
