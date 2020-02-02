@@ -11,4 +11,5 @@ VALUES
 (109, "Design Team", "Design Team"),
 (110, "Content Team", "Content Team"),
 (111, "Mentorship Team", "Mentorship Team"),
-(112, "Event Management Team", "Event Management Team");
+(112, "Event Management Team", "Event Management Team"),
+(112, "Learner Team", "Learner Team");
