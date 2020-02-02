@@ -71,6 +71,7 @@ function updateRecord(){
         if(this.responseText == "1"){
           alert("Member Succesfully Updated");
           document.getElementById("upd_btn").disabled = true;
+          location.reload();
           return 0;
         }
         else{

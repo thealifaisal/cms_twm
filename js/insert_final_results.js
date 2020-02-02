@@ -23,6 +23,7 @@ function insertResults(){
       }
       else{
         alert("Update Successful!");
+        location.reload();
         return 0;
       }
     }

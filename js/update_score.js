@@ -80,6 +80,7 @@ function update_results(){
         if(this.responseText.includes("success")){
           document.getElementById("submit_score").disabled = true;
           alert("Update Successful!");
+          location.reload();
           return 0;
         }
       }

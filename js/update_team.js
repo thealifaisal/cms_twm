@@ -50,6 +50,7 @@ function updateTeam(){
       else{
         alert("Success: Updated Team No: "+team_id);
         document.getElementById("upd-team-btn").disabled = true;
+        location.reload();
       }
     }
   };

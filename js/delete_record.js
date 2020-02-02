@@ -22,6 +22,7 @@ function deleteRecord(){
       else{
         alert("Member Succesfully Deleted");
         document.getElementById("del_btn").disabled = true;
+        location.reload();
         return 0;
       }
     }
