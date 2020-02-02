@@ -150,25 +150,25 @@
                 </a>
               </li>
               <li class="nav-item">
-                <a href="../tables/Co Heads.html" class="nav-link">
+                <a href="../tables/Co Heads.php" class="nav-link">
                   <i class="far fa-circle nav-icon"></i>
                   <p>Co-Heads</p>
                 </a>
               </li>
               <li class="nav-item">
-                <a href="../tables/Project Managers.html" class="nav-link">
+                <a href="../tables/Project Managers.php" class="nav-link">
                   <i class="far fa-circle nav-icon"></i>
                   <p>Project Managers</p>
                 </a>
               </li>
               <li class="nav-item">
-                <a href="../tables/Members.html" class="nav-link">
+                <a href="../tables/Members.php" class="nav-link">
                   <i class="far fa-circle nav-icon"></i>
                   <p>Members</p>
                 </a>
               </li>
               <li class="nav-item">
-                <a href="../tables/Learners.html" class="nav-link">
+                <a href="../tables/Learners.php" class="nav-link">
                   <i class="far fa-circle nav-icon"></i>
                   <p>Learners</p>
                 </a>
