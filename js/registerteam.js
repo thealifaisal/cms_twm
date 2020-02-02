@@ -49,6 +49,8 @@ function regTeam(){
       }
       else{
         window.alert("Team ID: " + this.responseText +"\nSave this ID for later use.");
+        location.reload();
+        return 0;
       }
     }
   };
