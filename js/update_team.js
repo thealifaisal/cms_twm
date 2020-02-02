@@ -24,20 +24,21 @@ function updateTeam(){
   var p1_name = document.getElementById("p1_name").value;
   var p2_id = document.getElementById("p2_id").value;
   var p2_name = document.getElementById("p2_name").value;
-  var total_prob = document.getElementById("total_prob").value;
-  var solved_prob = document.getElementById("solved_prob").value;
+  // var total_prob = document.getElementById("total_prob").value;
+  // var solved_prob = document.getElementById("solved_prob").value;
 
-  if(total_prob < solved_prob){
-    alert("Total Problems: "+total_prob+"\nSolved Problems: "+solved_prob);
-    return 0;
-  }
+  // if(total_prob < solved_prob){
+  //   alert("Total Problems: "+total_prob+"\nSolved Problems: "+solved_prob);
+  //   return 0;
+  // }
 
   var dataString1 = "ENAME="+event_name+"+&CNAME="+comp_name+"+&YEAR="+year+"+&TNAME="+team_name;
   var dataString2 = "+&LID="+leader_id+"+&LNAME="+leader_name+"+&LCNO="+leader_contact;
   var dataString3 = "+&P1ID="+p1_id+"+&P1NAME="+p1_name+"+&P2ID="+p2_id+"+&P2NAME="+p2_name;
-  var dataString4 = "+&TP="+total_prob+"+&SP="+solved_prob+"+&TID="+team_id;
+  var dataString4 = "+&TID="+team_id;
 
   var dataString = dataString1 + "" + dataString2 + "" + dataString3 + "" + dataString4;
+  // console.log(dataString);
 
   var xhttp = new XMLHttpRequest();
   xhttp.open("POST", "http://192.168.1.102/SourceCode/php/update_team.php?"+dataString, true);
@@ -71,11 +72,11 @@ function checkFields(){
   var p1_name = document.getElementById("p1_name").value;
   var p2_id = document.getElementById("p2_id").value;
   var p2_name = document.getElementById("p2_name").value;
-  var total_prob = document.getElementById("total_prob").value;
-  var solved_prob = document.getElementById("solved_prob").value;
+  // var total_prob = document.getElementById("total_prob").value;
+  // var solved_prob = document.getElementById("solved_prob").value;
 
   if(event_name == "Select Event" || comp_name == "Select Competition" || year == "" || team_name == ""
-  || leader_id == "" || leader_name == "" || leader_contact == "" || (p1_id != "" && p1_name == "") || total_prob == "" || solved_prob == ""
+  || leader_id == "" || leader_name == "" || leader_contact == "" || (p1_id != "" && p1_name == "")
   || (p2_id != "" && p2_name == "")){
     console.log("incomplete fields");
     return 0;
