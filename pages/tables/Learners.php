@@ -303,9 +303,9 @@
                     FROM member, skill, role
                     WHERE member.nu_id = skill.nu_id AND member.role_id = role.role_id
                     AND
-                    team_id IS NULL AND
+                    team_id = 113 AND
                     (
-                      member.role_id BETWEEN 123 AND 125
+                      member.role_id = 131
                     )
                     ";
                     $res = $conn->query($q) or die("Error: " . $conn->error);

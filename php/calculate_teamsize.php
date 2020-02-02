@@ -60,9 +60,9 @@ $result = $conn->query($sql) or die("error: " . $conn->error);
 $event_count =  $result->num_rows;
 
 // learners count
-$sql = "SELECT * FROM member WHERE team_id IS NULL AND (
-  role_id BETWEEN 123 AND 125)";
-// NULL because they will not belong to any team
+$sql = "SELECT * FROM member WHERE team_id = 113 AND (
+  role_id = 131)";
+  
 $result = $conn->query($sql) or die("error: " . $conn->error);
 $learner_count =  $result->num_rows;
 

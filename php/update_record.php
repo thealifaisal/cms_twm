@@ -35,7 +35,7 @@ $role_id = $role_id["role_id"];
 
 // check if team is empty
 if(empty($team)){
-  // member is faculty, learner, or ex-comm, update team_id to null in member table
+  // member is faculty, or ex-comm, update team_id to null in member table
   $updateMember = "UPDATE member SET full_name='$name', gender='$gender', nu_email='$mail',
   year_join=$year, password='$password', role_id=$role_id, team_id=NULL WHERE nu_id='$nu_id'";
 }

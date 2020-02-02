@@ -24,8 +24,8 @@ function insertRecord(){
     return 0;
   }
 
-  // check if faculty or excom or learner, then team will be null
-  if(role.includes("Faculty") || role.includes("President") || role == "General Secretary" || role == "Learner"){
+  // check if faculty or excom, then team will be null
+  if(role.includes("Faculty") || role.includes("President") || role == "General Secretary"){
 
     team = "";
 
@@ -41,7 +41,7 @@ function insertRecord(){
   else{
     // for every role there will be a team
     if(team == "Select Team"){
-      alert("Since The Member Is Non-Faculty, Non-ExComm, Non-Learner\nSelect A Team");
+      alert("Since The Member Is Non-Faculty, Non-ExComm\nSelect A Team");
       return 0;
     }
   }

@@ -35,12 +35,12 @@ $role_id = $role_id["role_id"];
 
 // check if team is empty
 if(empty($team)){
-  // member is faculty, learner, or ex-comm, do not insert team_id in member table
+  // member is faculty, or ex-comm, do not insert team_id in member table
   $insertMember = "INSERT INTO member (nu_id, full_name, gender, nu_email, year_join, username, password, role_id)
   VALUES ('$nu_id', '$name', '$gender', '$mail', $year, '$username', '$password', $role_id)";
 }
 else{
-  // member is non-faculty, non-learner, or non-excomm, insert team_id in member table
+  // member is non-faculty, or non-excomm, insert team_id in member table
   // -- fetch team_id from twm_team table
   $get_teamid = "SELECT team_id FROM twm_team WHERE team_name = '$team'";
   $r_get_teamid = $conn->query($get_teamid) or die("error: " . $conn->error);
