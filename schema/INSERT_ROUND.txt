@@ -1,3 +1,0 @@
-INSERT INTO round VALUES (101, "Round 1");
-INSERT INTO round VALUES (102, "Qualifier 1");
-INSERT INTO round VALUES (102, "Qualifier 2");
