@@ -298,7 +298,7 @@
                       <div class="col-md-6">
                         <div class="form-group">
                           <label>Role</label>
-                          <select class="form-control" id="role">
+                          <select onchange="onRoleChange()" class="form-control" id="role">
                             <option>Select Role</option>
                             <option>Faculty Head</option>
                             <option>Co-Faculty Head</option>
@@ -336,7 +336,7 @@
                       </div>
                       <div class="col-md-6">
                         <div class="form-group">
-                          <label>Team</label>
+                          <label id="team_L">Team</label>
                           <select class="form-control" id="team">
                             <option>Select Team</option>
                             <option>Web Development</option>
@@ -405,25 +405,25 @@
                     <div class="row">
                       <div class="col-md-3">
                         <div class="form-group">
-                          <label for="exampleInputEmail1">Communication Skills</label>
+                          <label id="comm_score_L" for="exampleInputEmail1">Communication Skills</label>
                           <input type="number" value="0" max="10" min="0" class="form-control" id="comm_score" autocomplete="off">
                         </div>
                       </div>
                       <div class="col-md-3">
                         <div class="form-group">
-                          <label for="exampleInputEmail1">Technical Skills</label>
+                          <label id="tech_score_L" for="exampleInputEmail1">Technical Skills</label>
                           <input type="number" value="0" max="10" min="0" class="form-control" id="tech_score" autocomplete="off">
                         </div>
                       </div>
                       <div class="col-md-3">
                         <div class="form-group">
-                          <label for="exampleInputEmail1">Management Skills</label>
+                          <label id="mng_score_L" for="exampleInputEmail1">Management Skills</label>
                           <input type="number" value="0" max="10" min="0" class="form-control" id="mng_score" autocomplete="off">
                         </div>
                       </div>
                       <div class="col-md-3">
                         <div class="form-group">
-                          <label for="exampleInputEmail1">Team Player</label>
+                          <label id="team_score_L" for="exampleInputEmail1">Team Player</label>
                           <input type="number" value="0" max="10" min="0" class="form-control" id="team_score" autocomplete="off">
                         </div>
                       </div>
@@ -475,7 +475,24 @@
 
   <script type="text/javascript">
 
-    // document.getElementById("insert_record").disable = true;
+    function onRoleChange(){
+      var role = document.getElementById("role").value;
+
+      if(role.includes("Faculty") || role.includes("President") || role == "General Secretary"){
+        document.getElementById("comm_score").readOnly = true;
+        document.getElementById("tech_score").readOnly = true;
+        document.getElementById("mng_score").readOnly = true;
+        document.getElementById("team_score").readOnly = true;
+        document.getElementById("team").disabled = true;
+      }
+      else{
+        document.getElementById("comm_score").readOnly = false;
+        document.getElementById("tech_score").readOnly = false;
+        document.getElementById("mng_score").readOnly = false;
+        document.getElementById("team_score").readOnly = false;
+        document.getElementById("team").disabled = false;
+      }
+    }
 
     $(document).ready(function () {
       bsCustomFileInput.init();
