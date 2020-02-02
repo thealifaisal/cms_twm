@@ -61,7 +61,7 @@ function update_results(){
   var solved_prob = document.getElementById("solved_prob").value;
   var total_prob = document.getElementById("total_prob").value;
 
-  if(total_prob < solved_prob){
+  if(total_prob > solved_prob){
     alert("Total Problems < Solved Problems !\nTotal Problems: "+total_prob+"\nSolved Problems: "+solved_prob);
     return 0;
   }

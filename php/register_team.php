@@ -74,9 +74,8 @@ $t_ID = $conn->insert_id;
 // now insert into roundscore
 
 // round
-// 101 : Round 1
-// 102: Qualifier 1
-// 103: Qualifier 2
+// 101: Qualifier 1
+// 102: Qualifier 2
 
 // since the team is being registered we will insert 101 in roundscore.round_id
 $insert_RS = "INSERT INTO roundscore (team_id, compevent_id, round_id) VALUES ($t_ID, $ce_ID, 101)";
