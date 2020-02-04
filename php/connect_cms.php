@@ -18,6 +18,23 @@ function openConn(){
   }
 }
 
+// function used in Executive_Committee.php, Heads.php ...
+function pdoConnOpen(){
+
+  $dbname = "cms_twm";
+  $dbserver = "localhost";
+  $dbuser = "alifaisal";
+  $dbpass = "7789";
+
+  $connPDO = mysqli_connect($dbserver, $dbuser, $dbpass, $dbname);
+
+  if (!$connPDO) {
+      die('Could not connect: ' . mysqli_error($connPDO));
+  }
+
+  return $connPDO;
+}
+
 function closeConn($conn){
   $conn->close();
 }
