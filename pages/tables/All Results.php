@@ -290,17 +290,11 @@
                 </thead>
                 <tbody>
                   <?php
-                    $servername = "localhost";
-                    $username = "alifaisal";
-                    $password = "7789";
-                    $dbname = "cms_twm";
 
-                    // Create connection
-                    $conn = new mysqli($servername, $username, $password, $dbname);
-                    // Check connection
-                    if ($conn->connect_error) {
-                        die("Connection failed: " . $conn->connect_error);
-                    }
+                    include_once "../../php/connect_cms.php";
+
+                    $conn = openConn();
+
                     $fetch_data =
                     "SELECT team_name, event_name, competition_name, round_name, le.nu_id AS nu_id, full_name, contact_no, solved_prob, total_prob, year
                     FROM event_team et, roundscore rs, participants pa, leader le, round rn, compevent ce, competition c, event e
@@ -326,7 +320,7 @@
                           </tr>
                         <?php
                       }
-                    $conn->close();
+                    // $conn->close();
                     ?>
                 </tbody>
                 <!-- <tfoot>
@@ -376,17 +370,11 @@
                 </thead>
                 <tbody>
                   <?php
-                    $servername = "localhost";
-                    $username = "alifaisal";
-                    $password = "7789";
-                    $dbname = "cms_twm";
 
-                    // Create connection
-                    $conn = new mysqli($servername, $username, $password, $dbname);
-                    // Check connection
-                    if ($conn->connect_error) {
-                        die("Connection failed: " . $conn->connect_error);
-                    }
+                    include_once "../../php/connect_cms.php";
+
+                    $conn = openConn();
+
                     $fetch_data =
                     "SELECT team_name, event_name, competition_name, round_name, le.nu_id AS nu_id, full_name, contact_no, solved_prob, total_prob, year
                     FROM event_team et, roundscore rs, participants pa, leader le, round rn, compevent ce, competition c, event e
@@ -412,7 +400,7 @@
                         </tr>
                         <?php
                       }
-                    $conn->close();
+                    // $conn->close();
                     ?>
                 </tbody>
                 <!-- <tfoot>
@@ -456,17 +444,11 @@
                 </thead>
                 <tbody>
                   <?php
-                    $servername = "localhost";
-                    $username = "alifaisal";
-                    $password = "7789";
-                    $dbname = "cms_twm";
 
-                    // Create connection
-                    $conn = new mysqli($servername, $username, $password, $dbname);
-                    // Check connection
-                    if ($conn->connect_error) {
-                        die("Connection failed: " . $conn->connect_error);
-                    }
+                    include_once "../../php/connect_cms.php";
+
+                    $conn = openConn();
+
                     $fetch_data =
                     "SELECT
                       (
@@ -493,7 +475,7 @@
                         </tr>
                         <?php
                       }
-                    $conn->close();
+                    // $conn->close();
                     ?>
                 </tbody>
                 <!-- <tfoot>

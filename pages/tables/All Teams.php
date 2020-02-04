@@ -291,17 +291,10 @@
                 </thead>
                 <tbody>
                   <?php
-                    $servername = "localhost";
-                    $username = "alifaisal";
-                    $password = "7789";
-                    $dbname = "cms_twm";
 
-                    // Create connection
-                    $conn = new mysqli($servername, $username, $password, $dbname);
-                    // Check connection
-                    if ($conn->connect_error) {
-                        die("Connection failed: " . $conn->connect_error);
-                    }
+                    include_once "../../php/connect_cms.php";
+
+                    $conn = openConn();
 
                     $get_TID = "SELECT DISTINCT team_id, team_name FROM event_team";
                     $r_get_TID = $conn->query($get_TID) or die("error: " . $conn->error);

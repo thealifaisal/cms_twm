@@ -287,17 +287,11 @@
                 </thead>
                 <tbody>
                   <?php
-                    $servername = "localhost";
-                    $username = "alifaisal";
-                    $password = "7789";
-                    $dbname = "cms_twm";
 
-                    // Create connection
-                    $conn = new mysqli($servername, $username, $password, $dbname);
-                    // Check connection
-                    if ($conn->connect_error) {
-                        die("Connection failed: " . $conn->connect_error);
-                    }
+                    include_once "../../php/connect_cms.php";
+
+                    $conn = openConn();
+
                     $q =
                     "SELECT member.nu_id AS nu_id, full_name, gender , nu_email , role_name, year_join, comm_skill, tech_skill
                     FROM member, skill, role

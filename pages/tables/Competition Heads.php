@@ -285,17 +285,11 @@
                 </thead>
                 <tbody>
                 <?php
-                  $servername = "localhost";
-                  $username = "alifaisal";
-                  $password = "7789";
-                  $dbname = "cms_twm";
 
-                  // Create connection
-                  $conn = new mysqli($servername, $username, $password, $dbname);
-                  // Check connection
-                  if ($conn->connect_error) {
-                      die("Connection failed: " . $conn->connect_error);
-                  }
+                  include_once "../../php/connect_cms.php";
+
+                  $conn = openConn();
+                  
                   $q =
                   "SELECT nu_id, full_name, role_name, event_name, competition_name, year
                   FROM member m, role r, compevent ce, event e, competition c
