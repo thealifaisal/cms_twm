@@ -1,10 +1,9 @@
 <?php
 
-// $con = mysqli_connect("localhost","root","","cms_twm");
-$conn = mysqli_connect("localhost","root","","cms_twm");
-if (!$conn) {
-    die('Could not connect: ' . mysqli_error($conn));
-}
+include "connect_cms.php";
+
+$conn = pdoConnOpen();
+
 $role_id=0;
 // mysqli_select_db($con,"ajax_demo");
 

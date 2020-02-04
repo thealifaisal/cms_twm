@@ -1,12 +1,10 @@
 <?php
-// $con = mysqli_connect("localhost","root","","cms_twm");
-$conn = mysqli_connect("localhost","root","","cms_twm");
-if (!$conn) {
-    die('Could not connect: ' . mysqli_error($conn));
-}
-$role_id=0;
-// mysqli_select_db($con,"ajax_demo");
 
+include "connect_cms.php";
+
+$conn = pdoConnOpen();
+
+$role_id=0;
 
 //fetching data from member table
 $sql="SELECT * FROM member WHERE role_id  BETWEEN 106 AND 113;";
