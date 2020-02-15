@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Feb 01, 2020 at 09:51 PM
+-- Generation Time: Feb 15, 2020 at 01:03 PM
 -- Server version: 10.4.8-MariaDB
 -- PHP Version: 7.3.10
 
@@ -65,7 +65,7 @@ CREATE TABLE `compevent` (
 --
 
 INSERT INTO `compevent` (`compevent_id`, `comp_id`, `event_id`, `year`, `winner_team_id`, `runner_up_team_id`, `head_nu_id`) VALUES
-(3, 103, 101, 2020, 3, 4, NULL);
+(4, 102, 101, 2020, NULL, NULL, NULL);
 
 -- --------------------------------------------------------
 
@@ -101,7 +101,7 @@ CREATE TABLE `event_team` (
 --
 
 INSERT INTO `event_team` (`team_id`, `team_name`) VALUES
-(3, 'Webster');
+(5, 'Titans');
 
 -- --------------------------------------------------------
 
@@ -120,9 +120,9 @@ CREATE TABLE `leader` (
 --
 
 INSERT INTO `leader` (`nu_id`, `team_id`, `contact_no`) VALUES
-('K173791', 3, '03451248906'),
-('K173851', 3, NULL),
-('K173881', 3, NULL);
+('K173791', 5, '03451248906'),
+('K173851', 5, NULL),
+('K173881', 5, NULL);
 
 -- --------------------------------------------------------
 
@@ -157,6 +157,7 @@ INSERT INTO `member` (`nu_id`, `full_name`, `gender`, `nu_email`, `year_join`, `
 ('K173851', 'Shayan', 'Male', 'K173851@nu.edu.pk', 2020, 'K173851', '7789', 107, 124),
 ('K173879', 'Ayesha Waheed', 'Female', 'K173879@nu.edu.pk', 2020, 'K173879', '1497', NULL, 105),
 ('K173881', 'Saba Pervez', 'Female', 'K173881@nu.edu.pk', 2020, 'K173881', '4792', 108, 110),
+('K173910', 'Hamza Jamali', 'Male', 'K173910@nu.edu.pk', 2020, 'K173910', 'MZsvHLjTCSB48XW', 113, 131),
 ('K173918', 'Avinash', 'Male', 'K173918@nu.edu.pk', 2020, 'K173918', '7789', 111, 126),
 ('KCFH1', 'Shoaib', 'Male', 'shoaib@nu.edu.pk', 2020, 'KCFH1', '6719', NULL, 102),
 ('KFH1', 'Farooq Hassan Kumbhar', 'Male', 'farooq.hassan@nu.edu.pk', 2020, 'KFH1', '1597', NULL, 101);
@@ -272,9 +273,8 @@ CREATE TABLE `round` (
 --
 
 INSERT INTO `round` (`round_id`, `round_name`) VALUES
-(101, 'Round 1'),
-(102, 'Qualifier 1'),
-(103, 'Qualifier 2');
+(101, 'Qualifier 1'),
+(102, 'Qualifier 2');
 
 -- --------------------------------------------------------
 
@@ -295,7 +295,8 @@ CREATE TABLE `roundscore` (
 --
 
 INSERT INTO `roundscore` (`solved_prob`, `total_prob`, `round_id`, `compevent_id`, `team_id`) VALUES
-(0, 0, 101, 3, 3);
+(5, 10, 101, 4, 5),
+(9, 10, 102, 4, 5);
 
 -- --------------------------------------------------------
 
@@ -326,6 +327,7 @@ INSERT INTO `skill` (`nu_id`, `comm_skill`, `tech_skill`, `mng_skill`, `team_pla
 ('K173851', 6, 5, 7, 6),
 ('K173879', 8, 9, 7, 8),
 ('K173881', 8, 7, 7, 9),
+('K173910', 8, 8, 9, 7),
 ('K173918', 7, 8, 6, 8),
 ('KCFH1', 8, 9, 9, 8),
 ('KFH1', 7, 10, 9, 8);
@@ -358,7 +360,8 @@ INSERT INTO `twm_team` (`team_id`, `team_name`, `team_details`) VALUES
 (109, 'Design Team', 'Detail: Design Team'),
 (110, 'Content Team', 'Detail: Content Team'),
 (111, 'Mentorship Team', 'Detail: Mentorship Team'),
-(112, 'Event Management Team', 'Detail: Event Management Team');
+(112, 'Event Management Team', 'Detail: Event Management Team'),
+(113, 'Learner Team', 'Detail: Learner Team');
 
 --
 -- Indexes for dumped tables
@@ -465,13 +468,13 @@ ALTER TABLE `twm_team`
 -- AUTO_INCREMENT for table `compevent`
 --
 ALTER TABLE `compevent`
-  MODIFY `compevent_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
+  MODIFY `compevent_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
 
 --
 -- AUTO_INCREMENT for table `event_team`
 --
 ALTER TABLE `event_team`
-  MODIFY `team_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
+  MODIFY `team_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=6;
 
 --
 -- AUTO_INCREMENT for table `project`
